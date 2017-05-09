@@ -1,0 +1,1 @@
+json.array! @mensuras, partial: 'mensuras/mensura', as: :mensura

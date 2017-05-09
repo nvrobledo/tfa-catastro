@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Objetos Mensuras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @objetos_mensuras.each do |objetos_mensura| %>
+      <tr>
+        <td><%= objetos_mensura.descripcion %></td>
+        <td><%= link_to 'Show', objetos_mensura %></td>
+        <td><%= link_to 'Edit', edit_objetos_mensura_path(objetos_mensura) %></td>
+        <td><%= link_to 'Destroy', objetos_mensura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Objetos Mensura', new_objetos_mensura_path %>

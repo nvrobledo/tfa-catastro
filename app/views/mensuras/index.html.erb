@@ -1,0 +1,47 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Mensuras</legend>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mensura nro</th>
+      <th>Mensura letra</th>
+      <th>Objeto</th>
+      <th>Localidad</th>
+      <th>Jurisdiccion</th>
+      <th>Rectificacion</th>
+      <th>Iniciador</th>
+      <th>Fecha operaciones</th>
+      <th>Fecha registracion</th>
+      <th>Expte</th>
+      <th>Visador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mensuras.each do |mensura| %>
+      <tr>
+        <td><%= mensura.mensura_nro %></td>
+        <td><%= mensura.mensura_letra %></td>
+        <td><%= mensura.objeto_id %></td>
+        <td><%= mensura.localidad_id %></td>
+        <td><%= mensura.jurisdiccion_id %></td>
+        <td><%= mensura.rectificacion_id %></td>
+        <td><%= mensura.iniciador_id %></td>
+        <td><%= mensura.fecha_operaciones %></td>
+        <td><%= mensura.fecha_registracion %></td>
+        <td><%= mensura.expte_id %></td>
+        <td><%= mensura.visador_id %></td>
+        <td><%= link_to 'Show', mensura %></td>
+        <td><%= link_to 'Edit', edit_mensura_path(mensura) %></td>
+        <td><%= link_to 'Destroy', mensura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Mensura', new_mensura_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>

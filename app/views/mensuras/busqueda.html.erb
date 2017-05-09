@@ -1,0 +1,34 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Mensura</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_mensuras'>
+    <%= form_for "mensuras", url: resultado_busqueda_mensuras_path, remote: true do |f| %>
+      <!--<div class="field">
+        <%= f.label :numero %>
+        <%= f.text_field :numero %>&nbsp;&nbsp;
+      </div>
+      <div class="actions">
+        <%= f.submit "Buscar"%>
+      </div>-->
+
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Nro Mensura:
+            </th>
+            <td>
+              <%= f.text_field :numero %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= f.submit "Buscar"%>&nbsp;&nbsp;
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div id="resultado"></div>
+</fieldset>
+
+

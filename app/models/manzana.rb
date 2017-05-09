@@ -1,0 +1,2 @@
+class Manzana < ApplicationRecord
+end

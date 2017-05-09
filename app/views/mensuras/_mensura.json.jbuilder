@@ -1,0 +1,2 @@
+json.extract! mensura, :id, :mensura_nro, :mensura_letra, :objeto_id, :localidad, :jurisdiccion, :rectificacion_id, :iniciador_id, :fecha_operaciones, :fecha_registracion, :expte_id, :visador_id, :created_at, :updated_at
+json.url mensura_url(mensura, format: :json)

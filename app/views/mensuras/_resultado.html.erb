@@ -1,0 +1,21 @@
+<% unless @mensuras.blank?%>
+  <table  class="listado">
+    <tr class="ui-widget-header listadoTitulo">
+      <th>Numero</th>
+      <th>Letra</th>
+      <th></th>
+    </tr>
+    <%  @mensuras.each do |mensura| %>
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= mensura.mensura_nro %></td>
+        <td><%= mensura.mensura_letra %></td>
+        <td>
+          <%= button_to 'Asignar', asignar_mensuras_path(id: mensura), method: :get ,remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  No se encontraron mensuras seg&uacute;n el criterio de b&uacute;squeda.
+<% end %>

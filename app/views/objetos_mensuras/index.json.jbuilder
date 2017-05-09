@@ -1,0 +1,1 @@
+json.array! @objetos_mensuras, partial: 'objetos_mensuras/objetos_mensura', as: :objetos_mensura

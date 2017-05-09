@@ -1,0 +1,132 @@
+<%= form_for(mensura, remote: true) do |f| %>
+  <% if mensura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mensura.errors.count, "error") %> prohibited this mensura from being saved:</h2>
+
+      <ul>
+      <% mensura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Jurisdicción:
+            </th>
+            <td>
+              <%= f.select :jurisdiccion_id, options_for_select(Jurisdiccion.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+            </td>
+            <th>
+              Nro Mensura:
+            </th>
+            <td>
+              <%= f.number_field :mensura_nro %>&nbsp;&nbsp;
+            </td>
+             <th>
+             Letra Mensura:
+            </th>
+            <td>
+              <%= f.text_field :mensura_letra %>
+              <%= image_tag("zoom.png") %>
+            </td>
+          </tr>
+           <tr>
+            <th>
+              Objeto Mensura:
+            </th>
+            <td>
+              <%= f.select :objeto_id, options_for_select(ObjetosMensura.all.order(:descripcion).map{|o| [o.descripcion, o.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+            </td>
+            <th>
+              Fecha de Registración:
+            </th>
+            <td>
+              <%= f.date_select :fecha_registracion %>
+              <%= image_tag("calendar.png", class: "ui-datepicker-trigger") %>&nbsp;&nbsp;
+            </td>
+             <th>
+             Rectifica Mensura N°:
+            </th>
+            <td>
+               <%= f.hidden_field :rectificacion_id %>
+               <%= number_field_tag :rectificacion_nro %>
+               <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_mensuras_path, class: 'fancybox-min' %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>&nbsp;&nbsp;
+
+    <%= render 'relacion_expte/relacionExpte' %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.fancybox-min').fancybox();
+  })
+</script>
+<!-- 
+<div class="field">
+    <%= f.label :mensura_nro %>
+    <%= f.number_field :mensura_nro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mensura_letra %>
+    <%= f.text_field :mensura_letra %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.number_field :localidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jurisdiccion %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :rectificacion_id %>
+    <%= f.number_field :rectificacion_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :iniciador_id %>
+    <%= f.number_field :iniciador_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_operaciones %>
+    <%= f.date_select :fecha_operaciones %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_registracion %>
+    <%= f.date_select :fecha_registracion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expte_id %>
+    <%= f.number_field :expte_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visador_id %>
+    <%= f.number_field :visador_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+-->
+<% end %>

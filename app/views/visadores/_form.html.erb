@@ -1,0 +1,47 @@
+<%= form_for(visador) do |f| %>
+  <% if visador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(visador.errors.count, "error") %> prohibited this visador from being saved:</h2>
+
+      <ul>
+      <% visador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipos_documento %>
+    <%= f.number_field :tipos_documento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :documento %>
+    <%= f.text_field :documento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :matricula %>
+    <%= f.text_field :matricula %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zona %>
+    <%= f.number_field :zona %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

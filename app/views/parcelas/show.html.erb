@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Propiedad:</strong>
+  <%= @parcela.propiedad_id %>
+</p>
+
+<p>
+  <strong>Superficie catastro:</strong>
+  <%= @parcela.superficie_catastro %>
+</p>
+
+<p>
+  <strong>Superficie titulo:</strong>
+  <%= @parcela.superficie_titulo %>
+</p>
+
+<p>
+  <strong>Superficie mensura:</strong>
+  <%= @parcela.superficie_mensura %>
+</p>
+
+<p>
+  <strong>Superficie estimada:</strong>
+  <%= @parcela.superficie_estimada %>
+</p>
+
+<%= link_to 'Edit', edit_parcela_path(@parcela) %> |
+<%= link_to 'Back', parcelas_path %>

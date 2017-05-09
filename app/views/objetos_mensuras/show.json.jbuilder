@@ -1,0 +1,1 @@
+json.partial! "objetos_mensuras/objetos_mensura", objetos_mensura: @objetos_mensura

@@ -1,0 +1,1 @@
+json.array! @visadores, partial: 'visadores/visador', as: :visador

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parcelas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propiedad</th>
+      <th>Superficie catastro</th>
+      <th>Superficie titulo</th>
+      <th>Superficie mensura</th>
+      <th>Superficie estimada</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parcelas.each do |parcela| %>
+      <tr>
+        <td><%= parcela.propiedad_id %></td>
+        <td><%= parcela.superficie_catastro %></td>
+        <td><%= parcela.superficie_titulo %></td>
+        <td><%= parcela.superficie_mensura %></td>
+        <td><%= parcela.superficie_estimada %></td>
+        <td><%= link_to 'Show', parcela %></td>
+        <td><%= link_to 'Edit', edit_parcela_path(parcela) %></td>
+        <td><%= link_to 'Destroy', parcela, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parcela', new_parcela_path %>

@@ -1,0 +1,21 @@
+<% unless @expedientes.blank?%>
+  <table  class="listado">
+    <tr class="ui-widget-header listadoTitulo">
+      <th>Expediente Numero</th>
+      <th>Tipo</th>
+      <th></th>
+    </tr>
+    <%  @expedientes.each do |expediente| %>
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= expediente.nro_expediente %></td>
+        <td><%= expediente.tipo_expediente.descripcion %></td>
+        <td>
+          <%= button_to 'Asignar', asignar_expedientes_path(id: expediente), method: :get ,remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  No se encontraron expedientes seg&uacute;n el criterio de b&uacute;squeda.
+<% end %>

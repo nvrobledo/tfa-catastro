@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Propiedades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Partida</th>
+      <th>Propiedad union</th>
+      <th>Localidad</th>
+      <th>Irp tomo</th>
+      <th>Irp folio real</th>
+      <th>Irp folio uf</th>
+      <th>Cantidad ocupantes</th>
+      <th>Fecha aplicacion decreto</th>
+      <th>Coeficiente prorrateo</th>
+      <th>Superficie unidad funcional</th>
+      <th>Piso</th>
+      <th>Departamento</th>
+      <th>Propiedad block</th>
+      <th>Tipo propiedad</th>
+      <th>Zona</th>
+      <th>Jurisdiccion</th>
+      <th>Agua cte</th>
+      <th>Cloaca</th>
+      <th>Irp finca</th>
+      <th>Exp nro</th>
+      <th>Exp anio</th>
+      <th>Exp letra</th>
+      <th>Propiedad origen</th>
+      <th>Fecha vigencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @propiedades.each do |propiedad| %>
+      <tr>
+        <td><%= propiedad.partida %></td>
+        <td><%= propiedad.propiedad_union_id %></td>
+        <td><%= propiedad.localidad_id %></td>
+        <td><%= propiedad.irp_tomo %></td>
+        <td><%= propiedad.irp_folio_real %></td>
+        <td><%= propiedad.irp_folio_uf %></td>
+        <td><%= propiedad.cantidad_ocupantes %></td>
+        <td><%= propiedad.fecha_aplicacion_decreto %></td>
+        <td><%= propiedad.coeficiente_prorrateo %></td>
+        <td><%= propiedad.superficie_unidad_funcional %></td>
+        <td><%= propiedad.piso %></td>
+        <td><%= propiedad.departamento %></td>
+        <td><%= propiedad.propiedad_block_id %></td>
+        <td><%= propiedad.tipo_propiedad_id %></td>
+        <td><%= propiedad.zona_id %></td>
+        <td><%= propiedad.jurisdiccion_id %></td>
+        <td><%= propiedad.agua_cte %></td>
+        <td><%= propiedad.cloaca %></td>
+        <td><%= propiedad.irp_finca %></td>
+        <td><%= propiedad.exp_nro %></td>
+        <td><%= propiedad.exp_anio %></td>
+        <td><%= propiedad.exp_letra %></td>
+        <td><%= propiedad.propiedad_origen_id %></td>
+        <td><%= propiedad.fecha_vigencia %></td>
+        <td><%= link_to 'Show', propiedad %></td>
+        <td><%= link_to 'Edit', edit_propiedad_path(propiedad) %></td>
+        <td><%= link_to 'Destroy', propiedad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Propiedad', new_propiedad_path %>

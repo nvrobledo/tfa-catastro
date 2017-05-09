@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @visador.apellido %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @visador.nombre %>
+</p>
+
+<p>
+  <strong>Tipos documento:</strong>
+  <%= @visador.tipos_documento %>
+</p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @visador.documento %>
+</p>
+
+<p>
+  <strong>Matricula:</strong>
+  <%= @visador.matricula %>
+</p>
+
+<p>
+  <strong>Zona:</strong>
+  <%= @visador.zona %>
+</p>
+
+<%= link_to 'Edit', edit_visador_path(@visador) %> |
+<%= link_to 'Back', visadores_path %>

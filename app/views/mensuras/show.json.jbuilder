@@ -1,0 +1,1 @@
+json.partial! "mensuras/mensura", mensura: @mensura

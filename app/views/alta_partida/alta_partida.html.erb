@@ -1,0 +1,315 @@
+<div id="content">
+
+            <div id="wrapper">
+              <fieldset class="ui-widget ui-widget-content ui-corner-all" id="alta">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Alta de Propiedades</legend>
+<!--  
+-->
+    
+  <form action="http://132.147.168.30/i-sicat/propiedades" class="new_propiedad" id="new_propiedad" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="JEn9K2yYNhayGMbMgAOT8d7jXor1gMSe2XZI67schp4="></div>
+    <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <table id="form-horizontal">
+        <tbody><tr>
+          <th>
+            Jurisdicción:
+          </th>
+          <td><select class="ui-widget-content required valid" id="propiedad_jurisdiccion_id" name="propiedad[jurisdiccion_id]"><option value="">-- Seleccione --</option>
+<option value="566">A1 - CAPITAL</option>
+<option value="567">A2 - RIACHUELO</option>
+<option value="636">A3 - LAGUNA BRAVA</option>
+<option value="568">B1 - BELLA VISTA</option>
+<option value="662">B2 - TRES DE ABRIL</option>
+<option value="569">C1 - BERON DE ASTRADA</option>
+<option value="637">C2 - YAHAPE</option>
+<option value="570">D1 - CONCEPCION</option>
+<option value="571">D2 - TABAY</option>
+<option value="572">D3 - SANTA ROSA</option>
+<option value="573">D4 - TATACUA</option>
+<option value="574">E1 - CURUZU CUATIA</option>
+<option value="575">E2 - PERUGORRIA</option>
+<option value="640">E3 - CAZADORES CORRENTINOS</option>
+<option value="576">F1 - EMPEDRADO</option>
+<option value="577">F2 - EL SOMBRERO</option>
+<option value="638">F3 - DERQUI</option>
+<option value="578">G1 - ESQUINA</option>
+<option value="579">G2 - PUEBLO LIBERTADOR</option>
+<option value="580">H1 - CAA-CATI</option>
+<option value="581">H2 - ITA IBATE</option>
+<option value="582">H3 - LOMA DE VALLEJOS</option>
+<option value="583">H4 - PALMAR GRANDE</option>
+<option value="584">I1 - GOYA</option>
+<option value="641">I2 - COLONIA CAROLINA</option>
+<option value="683">I3 - SAN ISIDRO</option>
+<option value="613">J1 - ITATI</option>
+<option value="585">J2 - RAMADA PASO</option>
+<option value="614">K1 - ITUZAINGO</option>
+<option value="586">K2 - SAN CARLOS</option>
+<option value="615">K3 - COLONIA LIEBIG</option>
+<option value="587">K5 - VILLA OLIVARI</option>
+<option value="616">K6 - COLONIA SAN ANTONIO</option>
+<option value="588">L1 - SANTA LUCIA</option>
+<option value="617">L2 - GOBERNADOR MARTINEZ</option>
+<option value="589">L4 - LAVALLE</option>
+<option value="618">L5 - CRUZ DE LOS MILAGROS</option>
+<option value="590">L6 - VILLA CORDOBA</option>
+<option value="591">L7 - YATAITI CALLE</option>
+<option value="619">M1 - MBURUCUYA</option>
+<option value="639">M2 - MANANTIALES</option>
+<option value="593">N1 - MERCEDES</option>
+<option value="592">N2 - FELIPE YOFRE</option>
+<option value="620">N3 - MARIANO I. LOZA</option>
+<option value="621">O1 - MONTE CASEROS</option>
+<option value="594">O2 - MOCORETA</option>
+<option value="622">O3 - COLONIA LIBERTAD</option>
+<option value="595">O4 - JUAN PUJOL</option>
+<option value="596">P1 - PASO DE LOS LIBRES</option>
+<option value="623">P2 - SAN SALVADOR</option>
+<option value="597">P3 - BONPLAND</option>
+<option value="624">P4 - PARADA PUCHETA</option>
+<option value="598">P5 - TAPEBICUA</option>
+<option value="599">Q1 - SALADAS</option>
+<option value="625">Q2 - SAN LORENZO</option>
+<option value="682">Q3 - PAGO DE LOS DESEOS</option>
+<option value="600">R1 - SAN COSME</option>
+<option value="626">R2 - SANTA ANA</option>
+<option value="627">R3 - PASO DE LA PATRIA</option>
+<option value="601">S1 - SAN LUIS DEL PALMAR</option>
+<option value="602">S2 - HERLITZKA</option>
+<option value="628">S3 - CERRUDO CUE</option>
+<option value="603">T1 - LA CRUZ</option>
+<option value="604">T2 - ALVEAR</option>
+<option value="629">T3 - YAPEYU</option>
+<option value="635">T4 - CNIA. CARLOS PELLEGRINI</option>
+<option value="605">T5 - GUAVIRAVI</option>
+<option value="630">T6 - ESTACION TORRENT</option>
+<option value="606">U1 - SAN MIGUEL</option>
+<option value="631">U2 - LORETO</option>
+<option value="607">V1 - CHAVARRIA</option>
+<option value="632">V2 - 9 DE JULIO</option>
+<option value="608">V3 - SAN ROQUE</option>
+<option value="633">V4 - PEDRO R. FERNANDEZ</option>
+<option value="642">V5 - COLONIA PANDO</option>
+<option value="609">W1 - SANTO TOME</option>
+<option value="610">W2 - GARRUCHOS</option>
+<option value="634">W3 - GOBERNADOR VIRASORO</option>
+<option value="611">W4 - JOSE R. GOMEZ</option>
+<option value="612">X1 - SAUCE</option></select></td>
+          <th>
+            Tipo de Propiedad:
+          </th>
+          <td>
+          
+            <select class="ui-widget-content required valid" id="propiedad_tipo_propiedad_id" name="propiedad[tipo_propiedad_id]"><option value="">--Seleccione--</option><option value="1">COMUN</option><option value="2">PROPIEDAD HORIZONTAL</option><option value="3">UNIDAD FUNCIONAL DE PH</option></select>
+              
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Zona:
+          </th>
+        
+          <td><select class="ui-widget-content required valid" id="propiedad_zona_id" name="propiedad[zona_id]" onchange="cambiar_tipo_propiedad()"><option value="">-- Seleccione --</option>
+<option value="1">1- URBANO</option>
+<option value="2">2- SUBURBANO</option>
+<option value="3">3- RURAL</option></select></td>
+          <th>
+            Número:
+          </th>
+          <td>
+            <span id="partida" style="display: none;">(Autogenerado) &nbsp;<a href="http://132.147.168.30/i-sicat/propiedades/new#" onclick="cambiar_partida()">Editar</a></span>
+            <input class="number ui-widget-content valid" id="t-partida" maxlength="6" name="propiedad[partida]" size="6" style="" type="text">
+          </td>
+        </tr>
+
+
+      </tbody></table>
+
+
+
+    </fieldset>
+    <br>
+    <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <legend class="ui-widget ui-widget-header ui-corner-all">Norma/Expediente de Origen de Cambio</legend>
+      <table id="form-horizontal">
+  <tbody><tr>
+    <th>
+      Disposición/Norma N°:
+    </th>
+    <td>
+      <input class="small ui-widget-content" datacontainer="alta" datatype="lupita" id="norma_nro_norma" name="norma[nro_norma]" readonly="readonly" size="30" type="text">
+      <input id="norma_id" name="norma[id]" type="hidden">
+    </td>
+    <th>
+      Letra:
+    </th>
+    <td>
+      <input class="v-small ui-widget-content" datacontainer="alta" datatype="lupita" id="norma_letra_norma" name="norma[letra_norma]" readonly="readonly" size="30" type="text">
+    </td>
+    <th>
+      Fecha:
+    </th>
+    <td>
+      <input class="ui-widget-content hasDatepicker" datacontainer="alta" datatype="lupita" id="norma_fecha_norma" name="norma[fecha_norma]" readonly="readonly" size="30" type="text"><%= image_tag("calendar.png", class: "ui-datepicker-trigger") %>
+    </td>
+    <th>
+      Tipo:
+    </th>
+    <td>
+      <input class="ui-widget-content" datacontainer="alta" datatype="lupita" id="post_desc_tipo_norma" name="post[desc_tipo_norma]" readonly="readonly" size="30" type="text">
+      <input id="norma_tipo_norma_id" name="norma[tipo_norma_id]" type="hidden">
+      <a href="http://132.147.168.30/i-sicat/normas/new?container=alta" id="ajax-nueva-norma"><%= image_tag("add.") %></a>&nbsp;
+      <a href="http://132.147.168.30/i-sicat/normas/buscar?container=alta" id="ajax-buscar-norma"><%= image_tag("zoom.png") %></a>
+      
+    </td>
+  </tr>
+  
+</tbody></table>
+<table style="width:70%;border:none;" class="listado">
+  <tbody><tr class="impar">
+    <th class="a-right">
+      Usuario:
+    </th>
+    <td>
+      Robledo Natalia
+    </td>
+    <th class="a-right">
+      Origen de cambio:
+    </th>
+    <td>
+       
+      <select id="norma_origen_accion_id" name="norma[origen_accion_id]" class="valid"><option value="11">POR EXPEDIENTE DE ADJUDICACIÓN</option>
+<option value="7">POR PEDIDO DE RECONSIDERACIÓN</option>
+<option value="8">POR MENSURA</option>
+<option value="6">DE OFICIO</option>
+<option value="9">POR TÍTULO</option>
+<option value="45">POR INSCRIPCION</option>
+<option value="73">POR DISPOSICIÓN</option></select>
+    </td>
+  </tr>
+  <tr>
+      <th class="a-rigth">
+      Observación:
+
+    </th>
+    <td colspan="6">
+      <input class="ui-widget-content" id="log_accion_observacion" name="log_accion[observacion]" size="80px" type="text">
+
+  </td>
+    </tr>
+  <tr>
+    <th class="a-right">
+        Expediente:
+
+    </th>
+    <td>
+      <input class="ui-widget-content" datatype="lupita" id="expediente_expediente_nro" name="expediente[expediente_nro]" readonly="readonly" size="16px" type="text">
+      <input id="expediente_expediente_id" name="expediente[expediente_id]" type="hidden" value="189402">
+      <a href="http://132.147.168.30/i-sicat/expedientes/buscar_nro?container=alta" id="ajax-expediente"><%= image_tag("zoom.png") %></a>
+    </td>
+  
+  </tr>
+</tbody></table>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+   /*$('#post_desc_tipo_norma').dblclick(function(){
+    $('#norma_nro_norma').val('')
+    $('#norma_letra_norma').val('')
+    $('#norma_fecha_norma').val('')
+   })*/
+    $("a#ajax-nueva-norma").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+      
+
+    });
+    $("a#ajax-buscar-norma").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+
+    });
+    $("a#ajax-expediente").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+
+    });
+
+    $("#norma_fecha_norma").datepicker({ dateFormat: 'dd-mm-yy',dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], buttonImage: '/i-sicat/images/22/calendar.png?1359040781',buttonImageOnly: true,showOn:'button', changeYear: true, yearRange: '1960:2110'});
+ });
+  
+</script>
+
+    </fieldset>
+    <br>
+    <div style="text-align: center">
+      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;<a href="http://132.147.168.30/i-sicat/consultas">Cancelar</a>
+
+    </div>
+  
+  </form>
+</fieldset>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#new_propiedad").validate();
+   // cambiar_tipo_propiedad();
+})
+ var tipos = new Array();
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(1, "COMUN"));
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(2, "PROPIEDAD HORIZONTAL"));
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(3, "UNIDAD FUNCIONAL DE PH"));
+  
+  
+   function cambiar_tipo_propiedad(){
+      $('#propiedad_tipo_propiedad_id').empty();
+      $('#propiedad_tipo_propiedad_id').val('');
+      if ($('#propiedad_zona_id').val() != ""){
+        $('#propiedad_tipo_propiedad_id').append('<option value="">--Seleccione--</option>')
+        tipos.forEach(function(tipo){
+          if ($('#propiedad_zona_id').val() == "1"){
+            $('#propiedad_tipo_propiedad_id').append('<option value="' +  tipo[0]+'">' + tipo[1] + '</option>');
+          }else{
+            if (tipo[0] == 1){
+                $('#propiedad_tipo_propiedad_id').append('<option value="' +  tipo[0]+'">' + tipo[1] + '</option>');
+            }
+          };
+       });
+      }else{
+        $('#propiedad_tipo_propiedad_id').append('<option value="">--Seleccione una zona--</option>')
+      }
+    };  
+
+
+  
+</script>
+
+
+
+            </div>
+          </div>
+          <div id="footer" style="color:gray;text-align:right;border-top: lightgray 1px solid;">
+
+
+
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+  
+
+
+<div id="fancybox-tmp" style="padding: 50px; width: auto; height: auto;"></div><div id="fancybox-loading" style="display: none;"><div style="top: -80px;"></div></div><div id="fancybox-overlay" style="background-color: rgb(102, 102, 102); opacity: 0.3; display: none;"></div><div id="fancybox-wrap" style="opacity: 1; width: 402px; height: 254px; top: 184px; left: 410.5px; display: none;"><div id="fancybox-outer"><div class="fancy-bg" id="fancy-bg-n"></div><div class="fancy-bg" id="fancy-bg-ne"></div><div class="fancy-bg" id="fancy-bg-e"></div><div class="fancy-bg" id="fancy-bg-se"></div><div class="fancy-bg" id="fancy-bg-s"></div><div class="fancy-bg" id="fancy-bg-sw"></div><div class="fancy-bg" id="fancy-bg-w"></div><div class="fancy-bg" id="fancy-bg-nw"></div><div id="fancybox-inner" style="top: 10px; left: 10px; width: 382px; height: 234px; overflow: hidden;"></div><a id="fancybox-close" style="display: none;"></a><a href="javascript:;" id="fancybox-left" style="display: none;"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right" style="display: none;"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible"></div></body></html>

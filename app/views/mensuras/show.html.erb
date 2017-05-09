@@ -1,0 +1,63 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Mensuras</legend>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mensura nro:</strong>
+  <%= @mensura.mensura_nro %>
+</p>
+
+<p>
+  <strong>Mensura letra:</strong>
+  <%= @mensura.mensura_letra %>
+</p>
+
+<p>
+  <strong>Objeto:</strong>
+  <%= @mensura.objeto_id %>
+</p>
+
+<p>
+  <strong>Localidad:</strong>
+  <%= @mensura.localidad %>
+</p>
+
+<p>
+  <strong>Jurisdiccion:</strong>
+  <%= @mensura.jurisdiccion %>
+</p>
+
+<p>
+  <strong>Rectificacion:</strong>
+  <%= @mensura.rectificacion_id %>
+</p>
+
+<p>
+  <strong>Iniciador:</strong>
+  <%= @mensura.iniciador_id %>
+</p>
+
+<p>
+  <strong>Fecha operaciones:</strong>
+  <%= @mensura.fecha_operaciones %>
+</p>
+
+<p>
+  <strong>Fecha registracion:</strong>
+  <%= @mensura.fecha_registracion %>
+</p>
+
+<p>
+  <strong>Expte:</strong>
+  <%= @mensura.expte_id %>
+</p>
+
+<p>
+  <strong>Visador:</strong>
+  <%= @mensura.visador_id %>
+</p>
+
+<%= link_to 'Edit', edit_mensura_path(@mensura) %> |
+<%= link_to 'Back', mensuras_path %>
+</fieldset>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://132.147.168.30/i-sicat/propiedades/new# -->
+<html class="js">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>I-Sicat</title>
+
+    <%= csrf_meta_tags %>
+
+    <%#= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application' %>
+    <%#= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+     
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="logo"> <%= image_tag "logo_header.jpg" %>I-Sicat</div>
+        <div id="session-data">
+
+          
+  
+  <b>Usuario: </b> Robledo Natalia<br>
+  
+    <a href="http://132.147.168.30/i-sicat/ws_seguridad/renovar_clave">Cambiar clave</a> | <a href="http://132.147.168.30/i-sicat/ws_seguridad/salir">Cerrar sesión</a>
+  
+  
+
+
+
+
+        </div>
+      </div>
+    
+  </head>
+  <body>
+    <div id="home">
+      <div id="container">
+        <%= render 'layouts/menu' %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

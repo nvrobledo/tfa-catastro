@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mensura_nro: 1
+  mensura_letra: MyString
+  objeto_id: 1
+  localidad: 1
+  jurisdiccion: 1
+  rectificacion_id: 1
+  iniciador_id: 1
+  fecha_operaciones: 2016-11-24
+  fecha_registracion: 2016-11-24
+  expte_id: 1
+  visador_id: 1
+
+two:
+  mensura_nro: 1
+  mensura_letra: MyString
+  objeto_id: 1
+  localidad: 1
+  jurisdiccion: 1
+  rectificacion_id: 1
+  iniciador_id: 1
+  fecha_operaciones: 2016-11-24
+  fecha_registracion: 2016-11-24
+  expte_id: 1
+  visador_id: 1

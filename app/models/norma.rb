@@ -1,0 +1,2 @@
+class Norma < ApplicationRecord
+end

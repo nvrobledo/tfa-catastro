@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @jurisdiccion.descripcion %>
+</p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @jurisdiccion.departamento %>
+</p>
+
+<%= link_to 'Edit', edit_jurisdiccion_path(@jurisdiccion) %> |
+<%= link_to 'Back', jurisdicciones_path %>

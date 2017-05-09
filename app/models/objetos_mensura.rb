@@ -1,0 +1,2 @@
+class ObjetosMensura < ApplicationRecord
+end

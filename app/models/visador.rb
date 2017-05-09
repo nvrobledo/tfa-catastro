@@ -1,0 +1,2 @@
+class Visador < ApplicationRecord
+end

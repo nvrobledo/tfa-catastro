@@ -1,0 +1,2 @@
+json.extract! propiedad, :id, :partida, :propiedad_union_id, :localidad_id, :irp_tomo, :irp_folio_real, :irp_folio_uf, :cantidad_ocupantes, :fecha_aplicacion_decreto, :coeficiente_prorrateo, :superficie_unidad_funcional, :piso, :departamento, :propiedad_block_id, :tipo_propiedad_id, :zona_id, :jurisdiccion_id, :agua_cte, :cloaca, :irp_finca, :exp_nro, :exp_anio, :exp_letra, :propiedad_origen_id, :fecha_vigencia, :created_at, :updated_at
+json.url propiedad_url(propiedad, format: :json)

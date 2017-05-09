@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apellido: MyString
+  nombre: MyString
+  tipos_documento: 1
+  documento: MyString
+  matricula: MyString
+  zona: 1
+
+two:
+  apellido: MyString
+  nombre: MyString
+  tipos_documento: 1
+  documento: MyString
+  matricula: MyString
+  zona: 1

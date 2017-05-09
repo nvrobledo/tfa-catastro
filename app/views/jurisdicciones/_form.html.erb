@@ -1,0 +1,27 @@
+<%= form_for(jurisdiccion) do |f| %>
+  <% if jurisdiccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jurisdiccion.errors.count, "error") %> prohibited this jurisdiccion from being saved:</h2>
+
+      <ul>
+      <% jurisdiccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :departamento_id %>
+    <%= f.select :departamento_id, options_for_select(Departamento.all.map{|d| [d.descripcion, d.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

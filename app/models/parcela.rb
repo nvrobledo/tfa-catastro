@@ -1,0 +1,2 @@
+class Parcela < ApplicationRecord
+end

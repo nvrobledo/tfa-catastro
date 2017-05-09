@@ -1,0 +1,137 @@
+<%= form_for(propiedad) do |f| %>
+  <% if propiedad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(propiedad.errors.count, "error") %> prohibited this propiedad from being saved:</h2>
+
+      <ul>
+      <% propiedad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :partida %>
+    <%= f.text_field :partida %>
+  </div>
+
+  <div class="field">
+    <%= f.label :propiedad_union_id %>
+    <%= f.number_field :propiedad_union_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.number_field :localidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :irp_tomo %>
+    <%= f.text_field :irp_tomo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :irp_folio_real %>
+    <%= f.text_field :irp_folio_real %>
+  </div>
+
+  <div class="field">
+    <%= f.label :irp_folio_uf %>
+    <%= f.text_field :irp_folio_uf %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cantidad_ocupantes %>
+    <%= f.number_field :cantidad_ocupantes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_aplicacion_decreto %>
+    <%= f.date_select :fecha_aplicacion_decreto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :coeficiente_prorrateo %>
+    <%= f.number_field :coeficiente_prorrateo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :superficie_unidad_funcional %>
+    <%= f.number_field :superficie_unidad_funcional %>
+  </div>
+
+  <div class="field">
+    <%= f.label :piso %>
+    <%= f.text_field :piso %>
+  </div>
+
+  <div class="field">
+    <%= f.label :departamento %>
+    <%= f.text_field :departamento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :propiedad_block_id %>
+    <%= f.number_field :propiedad_block_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_propiedad_id %>
+    <%= f.number_field :tipo_propiedad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zona_id %>
+    <%= f.number_field :zona_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jurisdiccion_id %>
+    <%= f.number_field :jurisdiccion_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agua_cte %>
+    <%= f.check_box :agua_cte %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cloaca %>
+    <%= f.check_box :cloaca %>
+  </div>
+
+  <div class="field">
+    <%= f.label :irp_finca %>
+    <%= f.number_field :irp_finca %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exp_nro %>
+    <%= f.text_field :exp_nro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exp_anio %>
+    <%= f.number_field :exp_anio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exp_letra %>
+    <%= f.text_field :exp_letra %>
+  </div>
+
+  <div class="field">
+    <%= f.label :propiedad_origen_id %>
+    <%= f.number_field :propiedad_origen_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_vigencia %>
+    <%= f.date_select :fecha_vigencia %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

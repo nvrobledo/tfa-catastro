@@ -1,0 +1,178 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <legend class="ui-widget ui-widget-header ui-corner-all">Norma/Expediente de Origen de Cambio</legend>
+      <table id="form-horizontal">
+  <tbody><tr>
+    <th>
+      Disposición/Norma N°:
+    </th>
+    <td>
+      <input class="small ui-widget-content" datacontainer="alta" datatype="lupita" id="norma_nro_norma" name="norma[nro_norma]" readonly="readonly" size="30" type="text">
+      <input id="norma_id" name="norma[id]" type="hidden">
+    </td>
+    <th>
+      Letra:
+    </th>
+    <td>
+      <input class="v-small ui-widget-content" datacontainer="alta" datatype="lupita" id="norma_letra_norma" name="norma[letra_norma]" readonly="readonly" size="30" type="text">
+    </td>
+    <th>
+      Fecha:
+    </th>
+    <td>
+      <input class="ui-widget-content hasDatepicker" datacontainer="alta" datatype="lupita" id="norma_fecha_norma" name="norma[fecha_norma]" readonly="readonly" size="30" type="text"><%= image_tag("calendar.png", class: "ui-datepicker-trigger") %>
+    </td>
+    <th>
+      Tipo:
+    </th>
+    <td>
+      <input class="ui-widget-content" datacontainer="alta" datatype="lupita" id="post_desc_tipo_norma" name="post[desc_tipo_norma]" readonly="readonly" size="30" type="text">
+      <input id="norma_tipo_norma_id" name="norma[tipo_norma_id]" type="hidden">
+      <a href="http://132.147.168.30/i-sicat/normas/new?container=alta" id="ajax-nueva-norma"><%= image_tag("add.") %></a>&nbsp;
+      <a href="http://132.147.168.30/i-sicat/normas/buscar?container=alta" id="ajax-buscar-norma"><%= image_tag("zoom.png") %></a>
+      
+    </td>
+  </tr>
+  
+</tbody></table>
+<table style="width:70%;border:none;" class="listado">
+  <tbody><tr class="impar">
+    <th class="a-right">
+      Usuario:
+    </th>
+    <td>
+      Robledo Natalia
+    </td>
+    <th class="a-right">
+      Origen de cambio:
+    </th>
+    <td>
+       
+      <select id="norma_origen_accion_id" name="norma[origen_accion_id]" class="valid"><option value="11">POR EXPEDIENTE DE ADJUDICACIÓN</option>
+<option value="7">POR PEDIDO DE RECONSIDERACIÓN</option>
+<option value="8">POR MENSURA</option>
+<option value="6">DE OFICIO</option>
+<option value="9">POR TÍTULO</option>
+<option value="45">POR INSCRIPCION</option>
+<option value="73">POR DISPOSICIÓN</option></select>
+    </td>
+  </tr>
+  <tr>
+      <th class="a-rigth">
+      Observación:
+
+    </th>
+    <td colspan="6">
+      <input class="ui-widget-content" id="log_accion_observacion" name="log_accion[observacion]" size="80px" type="text">
+
+  </td>
+    </tr>
+  <tr>
+    <th class="a-right">
+        Expediente:
+
+    </th>
+    <td>
+      <input class="ui-widget-content" datatype="lupita" id="expediente_expediente_nro" name="expediente[expediente_nro]" readonly="readonly" size="16px" type="text">
+      <input id="expediente_expediente_id" name="expediente[expediente_id]" type="hidden" value="189402">
+      <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_expedientes_path, class: 'fancybox-min' %>
+    </td>
+  
+  </tr>
+</tbody></table>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+   /*$('#post_desc_tipo_norma').dblclick(function(){
+    $('#norma_nro_norma').val('')
+    $('#norma_letra_norma').val('')
+    $('#norma_fecha_norma').val('')
+   })*/
+    $("a#ajax-nueva-norma").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+      
+
+    });
+    $("a#ajax-buscar-norma").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+
+    });
+    $("a#ajax-expediente").fancybox(
+    {
+      'hideOnContentClick': false,
+      'titleShow': false
+
+    });
+
+    $("#norma_fecha_norma").datepicker({ dateFormat: 'dd-mm-yy',dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], buttonImage: '/i-sicat/images/22/calendar.png?1359040781',buttonImageOnly: true,showOn:'button', changeYear: true, yearRange: '1960:2110'});
+ });
+  
+</script>
+
+    </fieldset>
+    <br>
+    <div style="text-align: center">
+      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;<a href="http://132.147.168.30/i-sicat/consultas">Cancelar</a>
+
+    </div>
+  
+  </form>
+</fieldset>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#new_propiedad").validate();
+   // cambiar_tipo_propiedad();
+})
+ var tipos = new Array();
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(1, "COMUN"));
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(2, "PROPIEDAD HORIZONTAL"));
+  // crea un array para poder trabajar con combos anidados
+    tipos.push(new Array(3, "UNIDAD FUNCIONAL DE PH"));
+  
+  
+   function cambiar_tipo_propiedad(){
+      $('#propiedad_tipo_propiedad_id').empty();
+      $('#propiedad_tipo_propiedad_id').val('');
+      if ($('#propiedad_zona_id').val() != ""){
+        $('#propiedad_tipo_propiedad_id').append('<option value="">--Seleccione--</option>')
+        tipos.forEach(function(tipo){
+          if ($('#propiedad_zona_id').val() == "1"){
+            $('#propiedad_tipo_propiedad_id').append('<option value="' +  tipo[0]+'">' + tipo[1] + '</option>');
+          }else{
+            if (tipo[0] == 1){
+                $('#propiedad_tipo_propiedad_id').append('<option value="' +  tipo[0]+'">' + tipo[1] + '</option>');
+            }
+          };
+       });
+      }else{
+        $('#propiedad_tipo_propiedad_id').append('<option value="">--Seleccione una zona--</option>')
+      }
+    };  
+
+
+  
+</script>
+
+
+
+            </div>
+          </div>
+          <div id="footer" style="color:gray;text-align:right;border-top: lightgray 1px solid;">
+
+
+
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  propiedad_id: 1
+  superficie_catastro: 1.5
+  superficie_titulo: 1.5
+  superficie_mensura: 1.5
+  superficie_estimada: 1.5
+
+two:
+  propiedad_id: 1
+  superficie_catastro: 1.5
+  superficie_titulo: 1.5
+  superficie_mensura: 1.5
+  superficie_estimada: 1.5

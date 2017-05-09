@@ -1,0 +1,24 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Expediente</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_expedientes'>
+    <%= form_for "expedientes", url: resultado_busqueda_expedientes_path, remote: true do |f| %>
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Nro Expediente:
+            </th>
+            <td>
+              <%= f.text_field :numero %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= f.submit "Buscar"%>&nbsp;&nbsp;
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div id="resultado"></div>
+</fieldset>

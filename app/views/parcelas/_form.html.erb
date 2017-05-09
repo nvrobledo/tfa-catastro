@@ -1,0 +1,42 @@
+<%= form_for(parcela) do |f| %>
+  <% if parcela.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parcela.errors.count, "error") %> prohibited this parcela from being saved:</h2>
+
+      <ul>
+      <% parcela.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :propiedad_id %>
+    <%= f.number_field :propiedad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :superficie_catastro %>
+    <%= f.text_field :superficie_catastro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :superficie_titulo %>
+    <%= f.text_field :superficie_titulo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :superficie_mensura %>
+    <%= f.text_field :superficie_mensura %>
+  </div>
+
+  <div class="field">
+    <%= f.label :superficie_estimada %>
+    <%= f.text_field :superficie_estimada %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partida: MyString
+  propiedad_union_id: 1
+  localidad_id: 1
+  irp_tomo: MyString
+  irp_folio_real: MyString
+  irp_folio_uf: MyString
+  cantidad_ocupantes: 1
+  fecha_aplicacion_decreto: 2016-11-21
+  coeficiente_prorrateo: 1
+  superficie_unidad_funcional: 1
+  piso: MyString
+  departamento: MyString
+  propiedad_block_id: 1
+  tipo_propiedad_id: 1
+  zona_id: 1
+  jurisdiccion_id: 1
+  agua_cte: false
+  cloaca: false
+  irp_finca: 1
+  exp_nro: MyString
+  exp_anio: 1
+  exp_letra: MyString
+  propiedad_origen_id: 1
+  fecha_vigencia: 2016-11-21
+
+two:
+  partida: MyString
+  propiedad_union_id: 1
+  localidad_id: 1
+  irp_tomo: MyString
+  irp_folio_real: MyString
+  irp_folio_uf: MyString
+  cantidad_ocupantes: 1
+  fecha_aplicacion_decreto: 2016-11-21
+  coeficiente_prorrateo: 1
+  superficie_unidad_funcional: 1
+  piso: MyString
+  departamento: MyString
+  propiedad_block_id: 1
+  tipo_propiedad_id: 1
+  zona_id: 1
+  jurisdiccion_id: 1
+  agua_cte: false
+  cloaca: false
+  irp_finca: 1
+  exp_nro: MyString
+  exp_anio: 1
+  exp_letra: MyString
+  propiedad_origen_id: 1
+  fecha_vigencia: 2016-11-21

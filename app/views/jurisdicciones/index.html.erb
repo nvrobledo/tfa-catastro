@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<span class="ui-dialog-title">
+  <h1>Jurisdicciones</h1>
+</span>
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Departamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jurisdicciones.each do |jurisdiccion| %>
+      <tr>
+        <td><%= jurisdiccion.descripcion %></td>
+        <td><%= jurisdiccion.departamento.descripcion %></td>
+        <td><%= link_to 'Show', jurisdiccion %></td>
+        <td><%= link_to 'Edit', edit_jurisdiccion_path(jurisdiccion) %></td>
+        <td><%= link_to 'Destroy', jurisdiccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jurisdiccion', new_jurisdiccion_path %>

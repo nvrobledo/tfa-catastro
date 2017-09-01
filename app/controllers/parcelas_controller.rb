@@ -1,5 +1,5 @@
 class ParcelasController < ApplicationController
-  before_action :set_parcela, only: [:show, :edit, :update, :destroy]
+  before_action :set_parcela, only: [:show, :edit, :update, :destroy, :asignar]
 
   # GET /parcelas
   # GET /parcelas.json
@@ -59,6 +59,12 @@ class ParcelasController < ApplicationController
       format.html { redirect_to parcelas_url, notice: 'Parcela was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mensuraPar
+  end
+
+  def asignar
   end
 
   private

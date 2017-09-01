@@ -1,0 +1,47 @@
+<%= form_for(iniciador) do |f| %>
+  <% if iniciador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(iniciador.errors.count, "error") %> prohibited this iniciador from being saved:</h2>
+
+      <ul>
+      <% iniciador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Apellido y Nombre:
+            </th>
+            <td>
+              <%= f.text_field :razon_social %>&nbsp;&nbsp;              
+            </td>
+            <th>
+              Tipo de Documento:
+            </th>
+            <td>
+              <%= f.select :tipo_documento_id, options_for_select(TipoDocumento.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+            </td>
+            <th>
+              Número:
+            </th>
+            <td>
+              <%= f.text_field :matricula %>              
+            </td>                  
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>&nbsp;&nbsp;
+    <!--<div class="submit ui-button ui-widget ui-state-default ui-corner-all" style="text-align: center" aria-disabled="false" >
+    <%= f.submit 'Guardar' %>
+  </div> -->
+  <div style="text-align: center">
+      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;
+  </div>
+  <% end %>
+  

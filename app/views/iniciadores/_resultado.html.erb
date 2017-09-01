@@ -1,0 +1,21 @@
+<% unless @iniciadores.blank?%>
+  <table  class="listado">
+    <tr class="ui-widget-header listadoTitulo">
+      
+      <th>Razón Social</th>
+      <th></th>
+    </tr>
+    <%  @iniciadores.each do |iniciador| %>
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= iniciador.razon_social %></td>
+      
+        <td>
+          <%= button_to 'Asignar', asignar_iniciadores_path(id: iniciador), method: :get ,remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  No se encontraron iniciadores seg&uacute;n el criterio de b&uacute;squeda.
+<% end %>

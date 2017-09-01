@@ -1,0 +1,22 @@
+<% unless @localidades.blank?%>
+  <table  class="listado">
+    <tr class="ui-widget-header listadoTitulo">
+      
+      <th>Localidad</th>
+      <th></th>
+    </tr>
+    <%  @localidades.each do |localidad| %>
+      <tr class="<%= cycle('par','impar') %>">
+        
+        <td><%= localidad.descripcion %></td>
+      
+        <td>
+          <%= button_to 'Asignar', asignar_localidades_path(id: localidad), method: :get ,remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  No se encontraron localidades seg&uacute;n el criterio de b&uacute;squeda.
+<% end %>

@@ -1,6 +1,8 @@
-<h1>Editing Propiedad</h1>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" id="edit">
+  <legend class="ui-widget ui-widget-header ui-corner-all"><%= '@propiedad.propiedad_id' %> </legend>
+		<%= render 'form', propiedad: @propiedad %>
+</fieldset>
 
-<%= render 'form', propiedad: @propiedad %>
 
-<%= link_to 'Show', @propiedad %> |
-<%= link_to 'Back', propiedades_path %>
+<%#= link_to 'Show', @propiedad %> |
+<%#= link_to 'Back', propiedades_path %>

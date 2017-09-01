@@ -15,6 +15,9 @@ class MensurasController < ApplicationController
   # GET /mensuras/new
   def new
     @mensura = Mensura.new
+    if params[:fancybox]  
+      render(layout: false)
+    end
   end
 
   # GET /mensuras/1/edit
@@ -25,7 +28,6 @@ class MensurasController < ApplicationController
   # POST /mensuras.json
   def create
     @mensura = Mensura.new(mensura_params)
-
     respond_to do |format|
       if @mensura.save
         format.html { redirect_to @mensura, notice: 'Mensura was successfully created.' }
@@ -68,6 +70,7 @@ class MensurasController < ApplicationController
     render(layout: false)
   end
 
+ 
   def resultado_busqueda
     @mensuras = Mensura.where('mensura_nro::text ilike ?', "%#{params[:mensuras][:numero]}%")
   end
@@ -84,6 +87,6 @@ class MensurasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mensura_params
-      params.require(:mensura).permit(:mensura_nro, :mensura_letra, :objeto_id, :localidad, :jurisdiccion, :rectificacion_id, :iniciador_id, :fecha_operaciones, :fecha_registracion, :expte_id, :visador_id)
+      params.require(:mensura).permit(:mensura_nro, :mensura_letra, :objeto_id, :localidad, :jurisdiccion_id, :rectificacion_id, :iniciador_id, :fecha_operaciones, :fecha_registracion, :expte_id, :visador_id)
     end
 end

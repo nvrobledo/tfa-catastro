@@ -1,3 +1,5 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+<legend class="ui-widget ui-widget-header ui-corner-all"> Parcelas </legend>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,6 +26,6 @@
   <strong>Superficie estimada:</strong>
   <%= @parcela.superficie_estimada %>
 </p>
-
+</fieldset>
 <%= link_to 'Edit', edit_parcela_path(@parcela) %> |
 <%= link_to 'Back', parcelas_path %>

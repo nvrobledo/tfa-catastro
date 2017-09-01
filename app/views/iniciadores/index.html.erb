@@ -1,0 +1,32 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Agrimensor Actuante</legend>
+
+<p id="notice"><%= notice %></p>
+
+<table class="listado" id="form-horizontal">
+  <thead>
+    <tr class="ui-widget-header listadoTitulo">
+      <th>Apellido y Nombre</th>
+      <th>Tipo Documento</th>
+      <th>Número</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @iniciadores.each do |iniciador| %>
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= iniciador.razon_social %></td>
+        <td><%= iniciador.tipo_documento.try(:descripcion_corta) %></td>
+        <td><%= iniciador.matricula %></td>
+        <td><%= link_to 'Show', iniciador %></td>
+        <td><%= link_to 'Edit', edit_iniciador_path(iniciador) %></td>
+        <td><%= link_to 'Destroy', iniciador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iniciador', new_iniciador_path %>

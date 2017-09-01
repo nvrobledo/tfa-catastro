@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  resources :localidades do
+    collection do
+      get :busqueda
+      get :asignar
+      post :resultado_busqueda
+    end
+  end
+  resources :iniciadores do
+    collection do
+      get :busqueda
+      get :asignar
+      post :resultado_busqueda
+    end
+  end
   resources :objetos_mensuras
   resources :mensuras do
-    collection do
+      collection do
       get :busqueda
       get :asignar
       post :resultado_busqueda
@@ -15,8 +29,18 @@ Rails.application.routes.draw do
     end
   end
   resources :propiedades
-  resources :parcelas
-  resources :visadores
+  resources :parcelas do
+    collection do
+      get :mensuraPar
+    end
+  end
+  resources :visadores do
+    collection do
+      get :busqueda
+      get :asignar
+      post :resultado_busqueda
+    end
+  end
   resources :jurisdicciones do
     member do
       get :get_mensure_attributes #  /jurisdicciones/:id/get_mensure_attributes

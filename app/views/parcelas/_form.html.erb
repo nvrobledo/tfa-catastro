@@ -11,32 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :propiedad_id %>
-    <%= f.number_field :propiedad_id %>
-  </div>
+  <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+    <table id="form-horizontal">
+      <legend class="ui-widget ui-widget-header ui-corner-all"> Parcela </legend>
+        <div class="field">
+          <%= f.label :propiedad_id %>
+          <%= f.number_field :propiedad_id %>
+        </div>
 
-  <div class="field">
-    <%= f.label :superficie_catastro %>
-    <%= f.text_field :superficie_catastro %>
-  </div>
+        <div class="field">
+          <%= f.label :superficie_catastro %>
+          <%= f.text_field :superficie_catastro %>
+        </div>
 
-  <div class="field">
-    <%= f.label :superficie_titulo %>
-    <%= f.text_field :superficie_titulo %>
-  </div>
+        <div class="field">
+          <%= f.label :superficie_titulo %>
+          <%= f.text_field :superficie_titulo %>
+        </div>
 
-  <div class="field">
-    <%= f.label :superficie_mensura %>
-    <%= f.text_field :superficie_mensura %>
-  </div>
+        <div class="field">
+          <%= f.label :superficie_mensura %>
+          <%= f.text_field :superficie_mensura %>
+        </div>
 
-  <div class="field">
-    <%= f.label :superficie_estimada %>
-    <%= f.text_field :superficie_estimada %>
-  </div>
+        <div class="field">
+          <%= f.label :superficie_estimada %>
+          <%= f.text_field :superficie_estimada %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+  </table>
+ </fieldset>
 <% end %>

@@ -8,6 +8,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'visador', 'visadores'
   inflect.irregular 'parcela', 'parcelas'
   inflect.irregular 'propiedad', 'propiedades'
+  inflect.irregular 'localidad', 'localidades'
   inflect.irregular 'iniciador', 'iniciadores'
   inflect.irregular 'logs_accion', 'logs_acciones'
   inflect.irregular 'origenes_accion', 'origenes_acciones'

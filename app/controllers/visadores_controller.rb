@@ -1,5 +1,5 @@
 class VisadoresController < ApplicationController
-  before_action :set_visador, only: [:show, :edit, :update, :destroy]
+  before_action :set_visador, only: [:show, :edit, :update, :destroy, :asignar]
 
   # GET /visadores
   # GET /visadores.json
@@ -15,6 +15,9 @@ class VisadoresController < ApplicationController
   # GET /visadores/new
   def new
     @visador = Visador.new
+    if params[:fancybox]  
+      render(layout: false)
+    end
   end
 
   # GET /visadores/1/edit
@@ -60,7 +63,21 @@ class VisadoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def busqueda
+    #respond_to do |format|
+    #  format.html { render(layout: false) }
+    #end
+    render(layout: false)
+  end
 
+ 
+  def resultado_busqueda
+    @visadores = Visador.where('apellido ilike ?', "%#{params[:visador][:apellido]}%")
+  end
+
+  def asignar
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_visador

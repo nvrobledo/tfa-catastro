@@ -1,0 +1,145 @@
+<%= form_for(mensura, remote: true) do |f| %>
+  <% if mensura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mensura.errors.count, "error") %> prohibited this mensura from being saved:</h2>
+
+      <ul>
+      <% mensura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Agrimensor Actuante:
+            </th>
+            <td>
+              <%= f.hidden_field :iniciador_id %>
+              <%= text_field_tag :razon_social, mensura.iniciador.try(:razon_social) %>
+              <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_iniciadores_path, class: 'fancybox-min' %>
+              <%#= image_tag("add.png") %>
+              <%= link_to image_tag("add.png", alt: 'Alta'), new_iniciador_path(fancybox: true), class: 'fancybox-min' %>
+            </td>
+            <th>
+              Fecha Ingreso Expediente:
+            </th>
+            <td>
+              <%= mensura.expediente.try :fecha_to_s %>
+            </td>
+            <th>
+             Localidad:
+            </th>
+            <td>
+              <%= f.hidden_field :localidad_id%>
+              <%= text_field_tag :localidad, mensura.localidad.try(:descripcion) %>
+              <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_localidades_path, class: 'fancybox-min' %>
+            </td>
+            <th>
+              Visador:
+            </th>
+            <td>
+              <%= f.hidden_field :visador_id %>
+              <%= text_field_tag :apellido, mensura.visador.try(:apellido) %>
+              <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_visadores_path, class: 'fancybox-min' %>
+              <%#= image_tag("add.png") %>
+              <%= link_to image_tag("add.png", alt: 'Alta'), new_visador_path(fancybox: true), class: 'fancybox-min' %>
+            </td>
+          </tr>
+           <tr>
+            <th>
+              Departamento:
+            </th>
+            <td>
+              <%=text_field_tag :departamento, mensura.localidad.try(:departamento).try(:descripcion)  %>&nbsp;
+            </td>
+            <th>
+              Fecha de las operaciones:
+            </th>
+            <td>
+              <%= f.date_select :fecha_operaciones %>
+              <%= image_tag("calendar.png", class: "ui-datepicker-trigger") %>&nbsp;&nbsp;
+            </td>
+             <th>
+             Calle o Paraje:
+            </th>
+            <td>
+              <%= text_field_tag :calle %>&nbsp;&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>&nbsp;&nbsp;
+
+    <%= render 'relacion_expte/relacionExpte' %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.fancybox-min').fancybox();
+  })
+</script>
+<!-- 
+<div class="field">
+    <%= f.label :mensura_nro %>
+    <%= f.number_field :mensura_nro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mensura_letra %>
+    <%= f.text_field :mensura_letra %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objeto_id %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.number_field :localidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jurisdiccion %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :rectificacion_id %>
+    <%= f.number_field :rectificacion_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :iniciador_id %>
+    <%= f.number_field :iniciador_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_operaciones %>
+    <%= f.date_select :fecha_operaciones %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_registracion %>
+    <%= f.date_select :fecha_registracion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expte_id %>
+    <%= f.number_field :expte_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visador_id %>
+    <%= f.number_field :visador_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+-->
+<% end %>

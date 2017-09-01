@@ -1,6 +1,7 @@
-<h1>Editing Mensura</h1>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" id="edit">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Mensura N°: <%= @mensura.mensura_nro %> - <%= @mensura.mensura_letra %></legend>
+		<%= render 'formEdit', mensura: @mensura %>
+</fieldset>
 
-<%= render 'form', mensura: @mensura %>
-
-<%= link_to 'Show', @mensura %> |
-<%= link_to 'Back', mensuras_path %>
+<%#= link_to 'Show', @mensura %> 
+<%#= link_to 'Back', mensuras_path %>

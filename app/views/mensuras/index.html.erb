@@ -2,9 +2,9 @@
 <legend class="ui-widget ui-widget-header ui-corner-all">Mensuras</legend>
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="listado" id="form-horizontal" >
   <thead>
-    <tr>
+    <tr class="ui-widget-header listadoTitulo">
       <th>Mensura nro</th>
       <th>Mensura letra</th>
       <th>Objeto</th>
@@ -22,7 +22,7 @@
 
   <tbody>
     <% @mensuras.each do |mensura| %>
-      <tr>
+      <tr class="<%= cycle('par','impar') %>">
         <td><%= mensura.mensura_nro %></td>
         <td><%= mensura.mensura_letra %></td>
         <td><%= mensura.objeto_id %></td>
@@ -45,3 +45,4 @@
 <br>
 
 <%= link_to 'Nueva Mensura', new_mensura_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>
+</fieldset>

@@ -1,10 +1,10 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Agrimensor Visador</legend>
 <p id="notice"><%= notice %></p>
 
-<h1>Visadores</h1>
-
-<table>
+<table class="listado" id="form-horizontal">
   <thead>
-    <tr>
+    <tr class="ui-widget-header listadoTitulo">
       <th>Apellido</th>
       <th>Nombre</th>
       <th>Tipos documento</th>
@@ -17,10 +17,10 @@
 
   <tbody>
     <% @visadores.each do |visador| %>
-      <tr>
+      <tr class="<%= cycle('par','impar') %>">
         <td><%= visador.apellido %></td>
         <td><%= visador.nombre %></td>
-        <td><%= visador.tipos_documento %></td>
+        <td><%= visador.tipo_documento.try(:descripcion_corta) %></td>
         <td><%= visador.documento %></td>
         <td><%= visador.matricula %></td>
         <td><%= visador.zona %></td>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Visador', new_visador_path %>
+<%= link_to 'Nuevo Visador', new_visador_path %>

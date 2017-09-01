@@ -1,0 +1,34 @@
+  <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Mensura N°:
+            </th>
+            <td>
+              <%#= hidden_field :mensura_id %>
+               <%= number_field_tag :mensura_nro %>
+               <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_mensuras_path, class: 'fancybox-min' %>
+               <%= link_to image_tag("add.png", alt: 'Alta'), new_mensura_path(fancybox: true), class: 'fancybox-min' %>&nbsp;&nbsp;
+            </td>
+            <th>
+             Letra Mensura:
+            </th>
+            <td>
+              <%= text_field_tag :mensura_letra %>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </fieldset>&nbsp;&nbsp;
+
+    <%= render 'relacion_expte/relacionExpte' %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.fancybox-min').fancybox();
+  })
+</script>
+

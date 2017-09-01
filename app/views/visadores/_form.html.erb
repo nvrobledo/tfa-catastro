@@ -10,38 +10,51 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :apellido %>
-    <%= f.text_field :apellido %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tipos_documento %>
-    <%= f.number_field :tipos_documento %>
-  </div>
-
-  <div class="field">
-    <%= f.label :documento %>
-    <%= f.text_field :documento %>
-  </div>
-
-  <div class="field">
-    <%= f.label :matricula %>
-    <%= f.text_field :matricula %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zona %>
-    <%= f.number_field :zona %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <table id="form-horizontal">
+    <tbody>
+      <tr>
+        <th>      
+          Apellido:          
+        </th>
+        <td>
+          <%= f.text_field :apellido %>&nbsp;&nbsp;
+        </td>
+        <th>
+          Nombre:
+        </th>
+        <td>
+          <%= f.text_field :nombre %>&nbsp;&nbsp;  
+        </td>
+        <th>
+          Tipo Documento:
+        </th>
+        <td>
+          <%= f.select :tipo_documento_id, options_for_select(TipoDocumento.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+        </td>
+        <th>
+          Número:
+        </th>
+        <td>
+          <%= f.text_field :documento %>&nbsp;&nbsp;  
+        </td>
+      </tr>
+      <tr>        
+        <th>
+          Matrícula:
+        </th>
+        <td>
+          <%= f.text_field :matricula %>&nbsp;&nbsp;  
+        </td>
+        <th>
+          Zona N°:
+        </th>
+        <td>
+          <%= f.number_field :zona %>&nbsp;&nbsp;  
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align: center">
+      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;
   </div>
 <% end %>

@@ -1,0 +1,22 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Agrimensor Actuante</legend>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Apellido y Nombre</strong>
+  <%= @iniciador.razon_social %>
+</p>
+
+<p>
+  <strong>Tipo Documento</strong>
+  <%= @iniciador.tipo_documento_id %>
+</p>
+
+<p>
+  <strong>Número</strong>
+  <%= @iniciador.matricula %>
+</p>
+
+<%= link_to 'Edit', edit_iniciador_path(@iniciador) %> |
+<%= link_to 'Back', iniciadores_path %>
+</fieldset>

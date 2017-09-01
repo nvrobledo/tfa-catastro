@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124032623) do
+ActiveRecord::Schema.define(version: 20170621233057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,8 @@ ActiveRecord::Schema.define(version: 20161124032623) do
     t.float    "superficie_estimada"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "mensura_id"
+    t.index ["mensura_id"], name: "index_parcelas_on_mensura_id", using: :btree
   end
 
   create_table "propiedades", force: :cascade do |t|
@@ -328,17 +330,18 @@ ActiveRecord::Schema.define(version: 20161124032623) do
   add_foreign_key "expedientes", "estados_expedientes", column: "estado_expediente_id", name: "expedientes_estado_expediente_id_fkey"
   add_foreign_key "expedientes", "iniciadores", name: "expedientes_iniciador_id_fkey"
   add_foreign_key "expedientes", "jurisdicciones", name: "expedientes_jurisdiccion_id_fkey"
-  add_foreign_key "expedientes", "localidades", column: "localidad_id", name: "expedientes_localidad_id_fkey"
+  add_foreign_key "expedientes", "localidades", name: "expedientes_localidad_id_fkey"
   add_foreign_key "expedientes", "tipos_expedientes", column: "tipo_expediente_id", name: "expedientes_tipo_expediente_id_fkey"
   add_foreign_key "iniciadores", "tipos_documentos", column: "tipo_documento_id", name: "iniciadores_tipo_documento_id_fkey"
   add_foreign_key "localidades", "departamentos", name: "localidades_departamento_id_fkey"
   add_foreign_key "logs_acciones", "normas", name: "logs_acciones_norma_id_fkey"
   add_foreign_key "logs_acciones", "origenes_acciones", column: "origen_accion_id", name: "logs_acciones_origen_accion_id_fkey"
-  add_foreign_key "manzanas", "localidades", column: "localidad_id", name: "manzanas_localidad_id_fkey"
+  add_foreign_key "manzanas", "localidades", name: "manzanas_localidad_id_fkey"
   add_foreign_key "normas", "tipos_normas", column: "tipo_norma_id", name: "normas_tipo_norma_id_fkey"
   add_foreign_key "origenes_acciones", "tipos_origenes_acciones", column: "tipo_origen_accion_id", name: "fk_origenes_acciones-tipos_origenes_acciones"
   add_foreign_key "origenes_acciones_tipos", "origenes_acciones", column: "origenes_acciones_id", name: "origenes_acciones_tipos_origenes_acciones_id_fkey"
   add_foreign_key "origenes_acciones_tipos", "tipos_origenes_acciones", column: "tipos_origenes_acciones_id", name: "origenes_acciones_tipos_tipos_origenes_acciones_id_fkey"
+  add_foreign_key "parcelas", "mensuras"
   add_foreign_key "tipos_exptes_orig_acc", "tipos_expedientes", column: "tipos_expedientes_id", name: "tipos_exptes_orig_acc_tipos_expedientes_id_fkey"
   add_foreign_key "tipos_exptes_orig_acc", "tipos_origenes_acciones", column: "tipos_origenes_acciones_id", name: "tipos_exptes_orig_acc_tipos_origenes_acciones_id_fkey"
 end

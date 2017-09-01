@@ -1,0 +1,26 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Agrimensor Actuante</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_iniciador'>
+    <%= form_for "iniciador", url: resultado_busqueda_iniciadores_path, remote: true do |f| %>
+     
+
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Razón Social:
+            </th>
+            <td>
+              <%= f.text_field :razon_social %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= f.submit "Buscar"%>&nbsp;&nbsp;
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div id="resultado"></div>
+</fieldset>

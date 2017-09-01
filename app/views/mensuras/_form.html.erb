@@ -19,7 +19,7 @@
               Jurisdicción:
             </th>
             <td>
-              <%= f.select :jurisdiccion_id, options_for_select(Jurisdiccion.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+              <%= f.select :jurisdiccion_id, options_for_select(Jurisdiccion.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --"  %>&nbsp;&nbsp;
             </td>
             <th>
               Nro Mensura:

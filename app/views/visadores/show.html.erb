@@ -1,3 +1,5 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<legend class="ui-widget ui-widget-header ui-corner-all">Agrimensor Actuante</legend>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,7 +14,7 @@
 
 <p>
   <strong>Tipos documento:</strong>
-  <%= @visador.tipos_documento %>
+  <%= @visador.tipo_documento.try(:descripcion_corta) %>
 </p>
 
 <p>
@@ -30,5 +32,6 @@
   <%= @visador.zona %>
 </p>
 
-<%= link_to 'Edit', edit_visador_path(@visador) %> |
-<%= link_to 'Back', visadores_path %>
+<%#= link_to 'Edit', edit_visador_path(@visador) %> 
+<%#= link_to 'Back', visadores_path %>
+</fieldset>

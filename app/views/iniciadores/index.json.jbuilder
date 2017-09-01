@@ -1,0 +1,1 @@
+json.array! @iniciadores, partial: 'iniciadores/iniciador', as: :iniciador

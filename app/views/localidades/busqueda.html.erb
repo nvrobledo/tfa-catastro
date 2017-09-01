@@ -1,0 +1,32 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Localidad</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_localidad'>
+    <%= form_for "localidad", url: resultado_busqueda_localidades_path, remote: true do |f| %>
+     
+
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Código:
+            </th>
+            <td>
+              <%= f.number_field :localidades_id %>&nbsp;&nbsp;
+            </td>
+            <th>
+              Localidad:
+            </th>
+            <td>
+              <%= f.text_field :descripcion %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= f.submit "Buscar"%>&nbsp;&nbsp;
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div id="resultado"></div>
+</fieldset>

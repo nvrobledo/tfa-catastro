@@ -1,0 +1,1 @@
+json.partial! "iniciadores/iniciador", iniciador: @iniciador

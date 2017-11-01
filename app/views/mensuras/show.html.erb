@@ -1,61 +1,85 @@
 <fieldset class="ui-widget ui-widget-content ui-corner-all" >
-<legend class="ui-widget ui-widget-header ui-corner-all">Mensuras</legend>
+<legend class="ui-widget ui-widget-header ui-corner-all">Mensura: <%= @mensura.mensura_nro %>-<%= @mensura.mensura_letra %></legend>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Mensura nro:</strong>
-  <%= @mensura.mensura_nro %>
-</p>
-
-<p>
-  <strong>Mensura letra:</strong>
-  <%= @mensura.mensura_letra %>
-</p>
-
-<p>
-  <strong>Objeto:</strong>
-  <%= @mensura.objeto_id %>
-</p>
-
-<p>
-  <strong>Localidad:</strong>
-  <%= @mensura.localidad if @mensura.localidad_id %>
-</p>
-
-<p>
-  <strong>Jurisdiccion:</strong>
-  <%= @mensura.jurisdiccion %>
-</p>
-
-<p>
-  <strong>Rectificacion:</strong>
-  <%= @mensura.rectificacion_id %>
-</p>
-
-<p>
-  <strong>Iniciador:</strong>
-  <%= @mensura.iniciador_id %>
-</p>
-
-<p>
-  <strong>Fecha operaciones:</strong>
-  <%= @mensura.fecha_operaciones %>
-</p>
-
-<p>
-  <strong>Fecha registracion:</strong>
-  <%= @mensura.fecha_registracion %>
-</p>
-
-<p>
-  <strong>Expte:</strong>
-  <%= @mensura.expte_id %>
-</p>
-
-<p>
-  <strong>Visador:</strong>
-  <%= @mensura.visador_id %>
-</p>
+  <table>
+    <tbody> 
+      <tr>
+        <% if @mensura.rectificacion_id %>
+          <th>
+            Rectifica a la Mensura N°:   
+          </th>
+          <td>
+            <%= @mensura.rectificacion_id %>
+          </td>
+        <%end%>
+        <th>
+          Localidad:
+        </th>
+        <td>
+          <%= @mensura.localidad.try(:descripcion) if @mensura.localidad_id %>&nbsp;&nbsp;
+        </td>
+        <th>
+          Jurisdiccion:
+        </th>
+        <td>
+          <%= @mensura.jurisdiccion.descripcion %>&nbsp;&nbsp;
+        </td>
+        <th>
+          Calle o Paraje:
+        </th>
+        <td>
+          <%= @mensura.calle.upcase %>&nbsp;&nbsp;
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Iniciador:
+        </th>
+        <td>
+          <%= @mensura.iniciador.try(:razon_social).try(:upcase) %>&nbsp;&nbsp;  
+        </td>
+        <th>
+          Fecha de Registración:
+        </th>
+        <td>
+          <%= l @mensura.fecha_registracion %>&nbsp;&nbsp;
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Propietario/Poseedor:
+        </th>
+        <td>
+          <%= @mensura.propietario.upcase %>&nbsp;&nbsp;
+        </td>
+        <th>
+          Expediente N°:
+        </th>
+        <td>
+          <%= @mensura.expediente.try(:nro_expediente) %>&nbsp;&nbsp;  
+        </td>
+        <th>
+          Fecha de las Operaciones:
+        </th>
+        <td>
+          <%= l @mensura.fecha_operaciones %>  &nbsp;&nbsp;
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Objeto:    
+        </th>
+        <td>
+          <%= @mensura.objetos_mensura.try(:descripcion) %>&nbsp;&nbsp;  
+        </td>
+        <th>
+          Agrimensor Visador:
+        </th>
+        <td>
+          <%= @mensura.visador.try(:apellido).try(:upcase) %>&nbsp;&nbsp;
+        </td>
+      </tr>                   
+      
 
 <%= link_to 'Edit', edit_mensura_path(@mensura) %> |
 <%= link_to 'Back', mensuras_path %>

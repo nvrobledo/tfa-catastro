@@ -1,12 +1,12 @@
   <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
       <table id="form-horizontal">
-        <tbody>
+        <tbody id="lista_mensuras">
           <tr>
             <th>
               Mensura N°:
             </th>
             <td>
-              <%#= hidden_field :mensura_id %>
+               <%= hidden_field_tag :mensura_id %>
                <%= number_field_tag :mensura_nro %>
                <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_mensuras_path, class: 'fancybox-min' %>
                <%= link_to image_tag("add.png", alt: 'Alta'), new_mensura_path(fancybox: true), class: 'fancybox-min' %>&nbsp;&nbsp;
@@ -16,10 +16,9 @@
             </th>
             <td>
               <%= text_field_tag :mensura_letra %>
-              
+              <%= link_to image_tag("add.png", alt: 'Alta'), "javascript:add_line()" %>
             </td>
           </tr>
-          
         </tbody>
       </table>
     </fieldset>&nbsp;&nbsp;
@@ -29,6 +28,24 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('.fancybox-min').fancybox();
+
   })
+
+  function add_line() { 
+    var d = new Date();
+    var n = d.getTime();
+    var mensura_letra = $("#mensura_letra").val();
+    var mensura_nro = $("#mensura_nro").val();
+    var mensura_id = $("#mensura_id").val();
+    var html = '';
+    html += '<tr id="' +  n + '""><td></td><td>' + mensura_nro + '</td>'; 
+    html += '<td>' + mensura_letra + '</td>'; 
+    html += '<td><a href="javascript:delete_line(' + n + ')">Eliminar</a></td></tr>';
+    $("#lista_mensuras").append(html);
+  }
+
+  function delete_line(n) {
+    $('#' + n).remove();
+  }
 </script>
 

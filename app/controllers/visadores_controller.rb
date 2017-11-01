@@ -17,7 +17,7 @@ class VisadoresController < ApplicationController
     @visador = Visador.new
     if params[:fancybox]  
       render(layout: false)
-    end
+  end
   end
 
   # GET /visadores/1/edit
@@ -86,6 +86,6 @@ class VisadoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visador_params
-      params.require(:visador).permit(:apellido, :nombre, :tipos_documento, :documento, :matricula, :zona)
+      params.require(:visador).permit(:apellido, :nombre, :tipos_documento_id, :documento, :matricula, :zona)
     end
 end

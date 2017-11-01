@@ -29,7 +29,7 @@
           Tipo Documento:
         </th>
         <td>
-          <%= f.select :tipo_documento_id, options_for_select(TipoDocumento.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
+          <%= f.select :tipos_documento_id, options_for_select(TipoDocumento.all.order(:descripcion).map{|j| [j.descripcion, j.id] }), prompt: "-- Seleccione --" %>&nbsp;&nbsp;
         </td>
         <th>
           Número:

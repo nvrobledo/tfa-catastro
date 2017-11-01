@@ -1,0 +1,59 @@
+<body>
+   <div>
+   <h1>Mensura: <%= @mensura.mensura_nro %>-<%= @mensura.mensura_letra %></h1>
+          <% if @mensura.rectificacion_id %>
+          
+            Rectifica a la Mensura N°:   
+          
+          
+            <%= @mensura.try(:rectificacion_nro) %>
+          
+        <%end%>
+        
+          Localidad:
+        
+        
+          <%= @mensura.localidad.try(:descripcion) if @mensura.localidad_id %>&nbsp;&nbsp;
+        
+        
+          Jurisdiccion:
+        
+        
+          <%= @mensura.jurisdiccion.descripcion %>&nbsp;&nbsp;
+        
+        
+          Calle o Paraje:
+        
+        
+          <%= @mensura.calle.upcase %>&nbsp;&nbsp;
+        
+          Iniciador:
+      
+          <%= @mensura.iniciador.try(:razon_social) %>&nbsp;&nbsp;  
+    
+          Fecha de Registración:
+     
+          <%= l @mensura.fecha_registracion %>&nbsp;&nbsp;
+    
+          Propietario/Poseedor:
+      
+          <%= @mensura.propietario.upcase %>&nbsp;&nbsp;
+      
+          Expediente N°:
+      
+          <%= @mensura.expediente.try(:nro_expediente) %>&nbsp;&nbsp;  
+        
+          Fecha de las Operaciones:
+    
+          <%= l @mensura.fecha_operaciones %>  &nbsp;&nbsp;
+
+          Objeto:    
+     
+          <%= @mensura.objetos_mensura.try(:descripcion) %>&nbsp;&nbsp;  
+     
+          Agrimensor Visador:
+     
+          <%= @mensura.visador.try(:apellido).upcase %>&nbsp;&nbsp;
+    
+      </div>            
+</body>

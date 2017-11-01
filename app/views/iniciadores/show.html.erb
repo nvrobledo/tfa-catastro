@@ -9,7 +9,7 @@
 
 <p>
   <strong>Tipo Documento</strong>
-  <%= @iniciador.tipo_documento_id %>
+  <%= @iniciador.tipo_documento.try(:descripcion_corta) %>
 </p>
 
 <p>

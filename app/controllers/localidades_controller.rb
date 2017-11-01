@@ -70,8 +70,8 @@ class LocalidadesController < ApplicationController
  
   def resultado_busqueda
     @localidades = Localidad.all
-    @localidades = @localidades.where('descripcion ilike ?', "%#{params[:localidad][:descripcion]}%") if params[:localidad][:descripcion]
-    @localidades = @localidades.where('id = ?', "#{params[:localidad][:localidades_id]}") if params[:localidad][:localidades_id]
+    @localidades = @localidades.where('descripcion ilike ?', "%#{params[:localidad][:descripcion]}%") if params[:localidad][:descripcion].present?
+    @localidades = @localidades.where('id = ?', "#{params[:localidad][:localidades_id]}") if params[:localidad][:localidades_id].present?
   end
 
   def asignar

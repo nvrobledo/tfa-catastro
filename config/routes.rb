@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   end
   resources :objetos_mensuras
   resources :mensuras do
-      collection do
+    member do
+      get :reporte
+    end
+    collection do
       get :busqueda
       get :asignar
       post :resultado_busqueda

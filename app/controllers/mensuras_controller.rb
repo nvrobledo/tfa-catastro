@@ -5,11 +5,21 @@ class MensurasController < ApplicationController
   # GET /mensuras.json
   def index
     @mensuras = Mensura.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'mensuras/reporte', pdf:'reporte'}
+    end
   end
 
   # GET /mensuras/1
   # GET /mensuras/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render layout: 'pdfs', template: 'mensuras/reporte', pdf:'reporte'}
+    end
   end
 
   # GET /mensuras/new
@@ -22,16 +32,19 @@ class MensurasController < ApplicationController
 
   # GET /mensuras/1/edit
   def edit
+    @expediente = @mensura.expediente
   end
 
   # POST /mensuras
   # POST /mensuras.json
   def create
     @mensura = Mensura.new(mensura_params)
+    
     respond_to do |format|
       if @mensura.save
-        format.html { redirect_to @mensura, notice: 'Mensura was successfully created.' }
+        format.html { redirect_to edit_mensura_path @mensura, notice: 'El registro se almacenó correctamente' }
         format.json { render :show, status: :created, location: @mensura }
+
       else
         format.html { render :new }
         format.json { render json: @mensura.errors, status: :unprocessable_entity }
@@ -44,7 +57,7 @@ class MensurasController < ApplicationController
   def update
     respond_to do |format|
       if @mensura.update(mensura_params)
-        format.html { redirect_to @mensura, notice: 'Mensura was successfully updated.' }
+        format.html { redirect_to mensura_path(@mensura), notice: 'El registro se actualizó correctamente' }
         format.json { render :show, status: :ok, location: @mensura }
       else
         format.html { render :edit }
@@ -58,8 +71,16 @@ class MensurasController < ApplicationController
   def destroy
     @mensura.destroy
     respond_to do |format|
-      format.html { redirect_to mensuras_url, notice: 'Mensura was successfully destroyed.' }
+      format.html { redirect_to mensuras_url, notice: 'El registro se eliminó correctamente' }
       format.json { head :no_content }
+    end
+  end
+
+  def reporte
+    respond_to do |format|
+      format.html {render(layout: pdfs)}
+      format.json
+      format.pdf {render layout: 'pdfs', template: 'mensuras/reporte', pdf:'reporte'}
     end
   end
 
@@ -87,6 +108,18 @@ class MensurasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mensura_params
-      params.require(:mensura).permit(:mensura_nro, :mensura_letra, :objeto_id, :localidad, :jurisdiccion_id, :rectificacion_id, :iniciador_id, :fecha_operaciones, :fecha_registracion, :expte_id, :visador_id)
+      params.require(:mensura).permit(:mensura_nro,
+                                      :mensura_letra,
+                                      :objeto_id,
+                                      :localidad_id,
+                                      :jurisdiccion_id,
+                                      :rectificacion_id,
+                                      :iniciador_id,
+                                      :fecha_operaciones,
+                                      :fecha_registracion,
+                                      :expte_id,
+                                      :visador_id,
+                                      :calle,
+                                      :propietario)
     end
 end

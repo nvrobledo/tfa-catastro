@@ -18,8 +18,8 @@
   <tbody>
     <% @visadores.each do |visador| %>
       <tr class="<%= cycle('par','impar') %>">
-        <td><%= visador.apellido %></td>
-        <td><%= visador.nombre %></td>
+        <td><%= visador.apellido.upcase %></td>
+        <td><%= visador.nombre.upcase %></td>
         <td><%= visador.tipo_documento.try(:descripcion_corta) %></td>
         <td><%= visador.documento %></td>
         <td><%= visador.matricula %></td>

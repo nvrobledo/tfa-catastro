@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621233057) do
+ActiveRecord::Schema.define(version: 20171016202414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,8 @@ ActiveRecord::Schema.define(version: 20170621233057) do
     t.integer  "visador_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "calle"
+    t.string   "propietario"
   end
 
   create_table "normas", force: :cascade do |t|
@@ -210,45 +212,89 @@ ActiveRecord::Schema.define(version: 20170621233057) do
     t.bigint   "exige_expediente"
   end
 
-  create_table "parcelas", force: :cascade do |t|
-    t.integer  "propiedad_id"
-    t.float    "superficie_catastro"
-    t.float    "superficie_titulo"
-    t.float    "superficie_mensura"
-    t.float    "superficie_estimada"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "mensura_id"
-    t.index ["mensura_id"], name: "index_parcelas_on_mensura_id", using: :btree
+  create_table "parcelas", id: :bigint, force: :cascade do |t|
+    t.bigint   "propiedad_id"
+    t.decimal  "superficie_catastro",         precision: 12, scale: 4
+    t.bigint   "superficie_titulo"
+    t.decimal  "superficie_mensura",          precision: 10, scale: 4
+    t.bigint   "superficie_estimada"
+    t.bigint   "cliente_id"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
+    t.bigint   "usuario_id"
+    t.bigint   "version"
+    t.datetime "fecha_baja"
+    t.datetime "fecha_alta"
+    t.datetime "fecha_ultima_modificacion"
+    t.bigint   "tipo_parcela_id"
+    t.decimal  "sup_calculo_valuacion",       precision: 8,  scale: 2
+    t.bigint   "id_1"
+    t.bigint   "propiedad_id_1"
+    t.decimal  "superficie_catastro_1",       precision: 12, scale: 4
+    t.bigint   "superficie_titulo_1"
+    t.decimal  "superficie_mensura_1",        precision: 10, scale: 4
+    t.bigint   "superficie_estimada_1"
+    t.bigint   "cliente_id_1"
+    t.datetime "fecha_inicio_1"
+    t.datetime "fecha_fin_1"
+    t.bigint   "usuario_id_1"
+    t.bigint   "version_1"
+    t.datetime "fecha_baja_1"
+    t.datetime "fecha_alta_1"
+    t.datetime "fecha_ultima_modificacion_1"
+    t.bigint   "tipo_parcela_id_1"
+    t.decimal  "sup_calculo_valuacion_1",     precision: 8,  scale: 2
   end
 
-  create_table "propiedades", force: :cascade do |t|
-    t.string   "partida"
-    t.integer  "propiedad_union_id"
-    t.integer  "localidad_id"
-    t.string   "irp_tomo"
-    t.string   "irp_folio_real"
-    t.string   "irp_folio_uf"
-    t.integer  "cantidad_ocupantes"
-    t.date     "fecha_aplicacion_decreto"
-    t.integer  "coeficiente_prorrateo"
-    t.integer  "superficie_unidad_funcional"
-    t.string   "piso"
-    t.string   "departamento"
-    t.integer  "propiedad_block_id"
-    t.integer  "tipo_propiedad_id"
-    t.integer  "zona_id"
-    t.integer  "jurisdiccion_id"
-    t.boolean  "agua_cte"
-    t.boolean  "cloaca"
-    t.integer  "irp_finca"
-    t.string   "exp_nro"
-    t.integer  "exp_anio"
-    t.string   "exp_letra"
-    t.integer  "propiedad_origen_id"
-    t.date     "fecha_vigencia"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+  create_table "propiedades", id: :bigint, force: :cascade do |t|
+    t.string   "partida",                     limit: 9
+    t.float    "propiedad_union_id"
+    t.bigint   "localidad_id"
+    t.string   "irp_tomo",                    limit: 15
+    t.string   "irp_folio_real",              limit: 15
+    t.text     "irp_folio_uf"
+    t.string   "irp_anio",                    limit: 15
+    t.float    "cantidad_ocupantes"
+    t.datetime "fecha_aplicacion_decreto"
+    t.float    "coeficiente_prorrateo"
+    t.float    "superficie_unidad_funcional"
+    t.text     "piso"
+    t.text     "departamento"
+    t.float    "propiedad_block_id"
+    t.bigint   "tipo_propiedad_id"
+    t.bigint   "zona_id"
+    t.bigint   "jurisdiccion_id"
+    t.string   "agua_cte",                    limit: 15
+    t.string   "cloaca",                      limit: 15
+    t.bigint   "cliente_id"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
+    t.bigint   "usuario_id"
+    t.bigint   "version"
+    t.datetime "fecha_baja"
+    t.float    "irp_finca"
+    t.string   "exp_nro",                     limit: 15
+    t.bigint   "exp_anio"
+    t.string   "exp_letra",                   limit: 1
+    t.datetime "fecha_vigencia"
+    t.datetime "fecha_alta"
+    t.datetime "fecha_ultima_modificacion"
+    t.float    "propiedad_origen_id"
+  end
+
+  create_table "tipo_log_acciones", id: :integer, force: :cascade do |t|
+    t.text    "descripcion"
+    t.integer "cliente_id"
+    t.date    "fecha_inicio"
+    t.date    "fecha_fin"
+    t.integer "usuario_id"
+    t.integer "version"
+    t.date    "fecha_baja"
+    t.text    "modifica_datos"
+    t.text    "log_activo"
+    t.date    "fecha_alta"
+    t.date    "fecha_ultima_modificacion"
+    t.text    "muestra_en_historico"
   end
 
   create_table "tipos_documentos", force: :cascade do |t|
@@ -341,7 +387,6 @@ ActiveRecord::Schema.define(version: 20170621233057) do
   add_foreign_key "origenes_acciones", "tipos_origenes_acciones", column: "tipo_origen_accion_id", name: "fk_origenes_acciones-tipos_origenes_acciones"
   add_foreign_key "origenes_acciones_tipos", "origenes_acciones", column: "origenes_acciones_id", name: "origenes_acciones_tipos_origenes_acciones_id_fkey"
   add_foreign_key "origenes_acciones_tipos", "tipos_origenes_acciones", column: "tipos_origenes_acciones_id", name: "origenes_acciones_tipos_tipos_origenes_acciones_id_fkey"
-  add_foreign_key "parcelas", "mensuras"
   add_foreign_key "tipos_exptes_orig_acc", "tipos_expedientes", column: "tipos_expedientes_id", name: "tipos_exptes_orig_acc_tipos_expedientes_id_fkey"
   add_foreign_key "tipos_exptes_orig_acc", "tipos_origenes_acciones", column: "tipos_origenes_acciones_id", name: "tipos_exptes_orig_acc_tipos_origenes_acciones_id_fkey"
 end

@@ -1,8 +1,13 @@
 class Mensura < ApplicationRecord
 	belongs_to :jurisdiccion
-	belongs_to :expediente, foreign_key: :expte_id
-	belongs_to :iniciador
-	belongs_to :localidad
-	belongs_to :visador
-	validates :jurisdiccion_id, :objeto_id, :fecha_registracion, :razon_social, :localidad_id, :apellido, :fecha_operaciones, presence: true
+	belongs_to :expediente, foreign_key: :expte_id, optional: true
+	belongs_to :iniciador, optional: true
+	belongs_to :localidad, optional: true
+	belongs_to :visador, optional: true
+	belongs_to :objetos_mensura, optional: true, foreign_key: :objeto_id
+	belongs_to :departamento, optional: true
+	belongs_to :parcela, optional: true
+	validates :jurisdiccion_id, :objeto_id, :fecha_registracion, presence: true
+
+	
 end

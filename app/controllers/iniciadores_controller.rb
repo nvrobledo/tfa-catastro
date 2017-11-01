@@ -88,6 +88,8 @@ class IniciadoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def iniciador_params
-      params.fetch(:iniciador, {})
+      params.require(:iniciador).permit(:razon_social,
+                                      :tipo_documento_id,
+                                      :matricula)
     end
 end

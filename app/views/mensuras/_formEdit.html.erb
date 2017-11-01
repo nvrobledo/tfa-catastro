@@ -1,4 +1,4 @@
-<%= form_for(mensura, remote: true) do |f| %>
+<%= form_for(mensura) do |f| %>
   <% if mensura.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(mensura.errors.count, "error") %> prohibited this mensura from being saved:</h2>
@@ -61,14 +61,22 @@
               Fecha de las operaciones:
             </th>
             <td>
-              <%= f.date_select :fecha_operaciones %>
+              <%= f.date_field :fecha_operaciones, order: [:day, :month, :year] %>
               <%= image_tag("calendar.png", class: "ui-datepicker-trigger") %>&nbsp;&nbsp;
+            </td>             
+          </tr>
+          <tr>
+            <th>
+             Propietario o Poseedor: 
+            </th>
+            <td>
+              <%=f.text_field :propietario%>
             </td>
-             <th>
+            <th>
              Calle o Paraje:
             </th>
             <td>
-              <%= text_field_tag :calle %>&nbsp;&nbsp;
+              <%= f.text_field :calle %>&nbsp;&nbsp;
             </td>
           </tr>
         </tbody>

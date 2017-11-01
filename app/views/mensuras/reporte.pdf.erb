@@ -1,0 +1,56 @@
+
+   <div class="main">
+   <h1>Mensura: <%= @mensura.mensura_nro %>-<%= @mensura.mensura_letra %></h1>
+
+   <br><br>
+
+   	<% if @mensura.rectificacion_id %>
+      Rectifica a la Mensura N°:   
+    	<%= @mensura.try(:rectificacion_nro) %>
+    <%end%>
+    <br>
+
+   <b>Expediente N°:</b>
+    <%= @mensura.expediente.try(:nro_expediente) %>&nbsp;&nbsp;
+
+    <br><br>
+
+    <b>Iniciador:</b>
+    <%= @mensura.iniciador.try(:razon_social) %>&nbsp;&nbsp; 
+
+    <br><br>
+
+		<b>Propietario/Poseedor:</b>
+  	<%= @mensura.propietario.try(:upcase) %>&nbsp;&nbsp;
+		
+		<br><br> 
+
+    <b>Localidad:</b>
+    <%= @mensura.localidad.try(:descripcion) if @mensura.localidad_id %>&nbsp;&nbsp;
+        
+	  <b>Jurisdiccion:</b>
+	  <%= @mensura.jurisdiccion.descripcion %>&nbsp;&nbsp;
+	        
+	  <b>Calle o Paraje:</b>
+	  <%= @mensura.calle.try(:upcase) %>&nbsp;&nbsp;
+		
+
+		<br><br>
+	          
+	  <b>Fecha de las Operaciones:</b>
+	  <%= l @mensura.fecha_operaciones %>  &nbsp;&nbsp;
+
+	  <b>Objeto:</b>    
+	  <%= @mensura.objetos_mensura.try(:descripcion) %>&nbsp;&nbsp; 
+
+	  <br><br>
+	     
+	  <b>Agrimensor Visador:</b>
+	  <%= @mensura.visador.try(:apellido).try(:upcase) %>&nbsp;&nbsp;
+
+	  <br><br>
+	  
+	  	<p align=center><b>Fecha de Registración:</b>
+	  	<%= l @mensura.fecha_registracion %></p>
+	   
+  </div>            

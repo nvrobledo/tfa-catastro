@@ -72,8 +72,8 @@
 
     </th>
     <td>
-      <input class="ui-widget-content" datatype="lupita" id="expediente_expediente_nro" name="expediente[expediente_nro]" readonly="readonly" size="16px" type="text">
-      <input id="expediente_expediente_id" name="expediente[expediente_id]" type="hidden" value="189402">
+      <input class="ui-widget-content" datatype="lupita" id="expediente_expediente_nro" name="expediente[expediente_nro]" readonly="readonly" size="16px" type="text" value="<%= @expediente.try(:nro_expediente) %>">
+      <input id="expediente_expediente_id" name="mensura[expte_id]" type="hidden" value="<%= @expediente.try(:id) %>">
       <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_expedientes_path, class: 'fancybox-min' %>
     </td>
   
@@ -115,7 +115,7 @@
     </fieldset>
     <br>
     <div style="text-align: center">
-      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;<a href="http://132.147.168.30/i-sicat/consultas">Cancelar</a>
+      <input class="submit ui-button ui-widget ui-state-default ui-corner-all" name="commit" type="submit" value="Guardar" role="button" aria-disabled="false">&nbsp; &nbsp;<%= link_to "Cancelar", mensuras_path %>
 
     </div>
   

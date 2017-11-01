@@ -2,6 +2,7 @@ div.cmDiv
 {
 	border: 1px solid #aed0ea;
         background: #deedf7;
+        height: 30px;
 	/*background-color: #eee;*/
         -moz-border-radius:8px;
         -webkit-border-radius:8px;
@@ -52,6 +53,7 @@ div.cmDiv
 	top: 20px; /* for ie */
 	left: 0;
 	margin: 0;
+
 }
 .clickMenu div.inner div.outerbox
 {

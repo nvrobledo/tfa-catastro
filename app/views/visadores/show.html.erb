@@ -4,17 +4,17 @@
 
 <p>
   <strong>Apellido:</strong>
-  <%= @visador.apellido %>
+  <%= @visador.apellido.upcase %>
 </p>
 
 <p>
   <strong>Nombre:</strong>
-  <%= @visador.nombre %>
+  <%= @visador.nombre.upcase %>
 </p>
 
 <p>
   <strong>Tipos documento:</strong>
-  <%= @visador.tipo_documento.try(:descripcion_corta) %>
+  <%= @visador.tipos_documento.try(:descripcion_corta) %>
 </p>
 
 <p>

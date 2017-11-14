@@ -1,0 +1,20 @@
+<% unless @propiedades.blank?%>
+  <table  class="listado">
+    <tr class="ui-widget-header listadoTitulo">
+      <th>Partida</th>
+      >
+    </tr>
+    <%  @propiedades.each do |propiedad| %>
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= propiedad.partida %></td>
+        
+        <td>
+          <%= button_to 'Asignar', asignar_propiedades_path(id: propiedad), method: :get ,remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  No se encontraron propiedades seg&uacute;n el criterio de b&uacute;squeda.
+<% end %>

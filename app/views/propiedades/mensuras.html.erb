@@ -1,0 +1,43 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Historico Mensuras</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_propiedades'>
+  
+    <table class="listado" id="form-horizontal">
+      <tbody>
+        <tr class="ui-widget-header listadoTitulo">
+          <th>
+            Nro:
+          </th>
+          <th>
+            Letra
+          </th>
+          <th>
+            Agrimensor:
+          </th>
+          <th>
+            Fecha de Registración:
+          </th>
+        </tr>
+        <% @propiedad.parcela.mensuras.each do |mensura| %>
+          <tr class="<%= cycle('par','impar') %>">
+            <td>
+              <%= mensura.mensura_nro %>
+            </td>
+            <td>
+              <%= mensura.mensura_letra %>
+            </td>
+            <td>
+              <%= mensura.iniciador.try(:razon_social).try(:upcase) %>
+            </td>
+            <td>
+              <%= l mensura.fecha_registracion if mensura.fecha_registracion %>
+            </td>
+          </tr>
+        <% end if @propiedad.parcela.mensuras.present? %>         
+      </tbody>
+    </table>
+  </div>
+  <div id="resultado"></div>
+</fieldset>
+

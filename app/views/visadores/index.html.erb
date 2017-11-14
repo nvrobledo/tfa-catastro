@@ -24,9 +24,9 @@
         <td><%= visador.documento %></td>
         <td><%= visador.matricula %></td>
         <td><%= visador.zona %></td>
-        <td><%= link_to 'Show', visador %></td>
-        <td><%= link_to 'Edit', edit_visador_path(visador) %></td>
-        <td><%= link_to 'Destroy', visador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag("zoom.png"), visador %></td>
+        <td><%= link_to image_tag("edit.png"), edit_visador_path(visador) %></td>
+        <td><%= link_to image_tag("delete.png"), visador, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este visador?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,5 @@
 
 <br>
 
-<%= link_to 'Nuevo Visador', new_visador_path %>
+<%= will_paginate @visadores %><br>
+<%= link_to 'Nuevo Visador', new_visador_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>

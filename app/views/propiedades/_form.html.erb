@@ -27,13 +27,13 @@
             <%= f.label :jurisdiccion_id %>      
           </th>
           <td>  
-            <%= f.number_field :jurisdiccion_id %>
+            <%= text_field_tag :jurisdiccion, propiedad.jurisdiccion.try(:descripcion) %>
           </td>
           <th>
             <%= f.label :localidad_id %>      
           </th>
           <td>  
-            <%= f.number_field :localidad_id %>
+            <%= text_field_tag :localidad, propiedad.localidad.try(:descripcion) %>
           </td>
         </tr>
         <tr>
@@ -67,7 +67,7 @@
             <%= f.label :departamento %>      
           </th>
           <td>
-            <%= f.text_field :departamento %>
+            <%= f.text_field :dpto %>
           </td>
           <th>
             <%= f.label :cantidad_ocupantes %>      
@@ -101,7 +101,7 @@
             <%= f.label :fecha_vigencia %>       
           </th>
           <td>
-            <%= f.date_select :fecha_vigencia %>
+            <%= f.date_field :fecha_vigencia, order: [:day, :month, :year] %>
           </td>
           <th>
              <%= f.label :propiedad_origen_id %>      
@@ -117,31 +117,29 @@
         <table>
          <tr>
           <th>
-            <%= f.label :irp_tomo %>        
+            <%= f.label :Tomo %>        
           </th>
           <td>
             <%= f.text_field :irp_tomo %>
           </td>
           <th>
-            <%= f.label :irp_folio_real %>      
+            <%= f.label :Folio %>      
           </th>
           <td>
             <%= f.text_field :irp_folio_real %>/
           </td>
-          <th>
-            <%= f.label :irp_folio_uf %>      
-          </th>
+         
           <td>
             <%= f.text_field :irp_folio_uf %>
           </td>
           <th>
-            <%= f.label :irp_finca %>      
+            <%= f.label :Finca %>      
           </th>
           <td>
             <%= f.number_field :irp_finca %>
           </td>
          <th>
-            <%= f.label :irp_anio %>      
+            <%= f.label :Año %>      
           </th>
           <td>
             <%= f.number_field :irp_anio %>
@@ -149,47 +147,72 @@
         </tr>
         </table>
         </fieldset>
-
-
+        <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+        <legend class="ui-widget ui-widget-header ui-corner-all"> Parcela </legend>
+        <table>
+         <tr>
           <th>
-            <%= f.label :partida %>
+            Sup. Catastro        
           </th>
           <td>
-            <%= f.text_field :partida %>
+            <%= number_field_tag :superficie_catastro, propiedad.parcela.try(:superficie_catastro) %>
           </td>
           <th>
-            <%= f.label :propiedad_union_id %>
+            Sup. Mensura      
           </th>
-          <td>  
-            <%= f.number_field :propiedad_union_id %>
+          <td>
+            <%= number_field_tag :superficie_mensura, propiedad.parcela.try(:superficie_mensura) %>
           </td>
+        </tr>
+        </table>
+        </fieldset>
+        <fieldset class="ui-widget ui-widget-content ui-corner-all" id="fconsulta">
+        <legend class="ui-widget ui-widget-header ui-corner-all"> Mensura </legend>
+        <table>
+         <tr>
+          <th style="text-align: left;">
+            Mensura N°:        
+          </th>
+          <td>
+            <%= number_field_tag :mensura_nro, propiedad.parcela.try(:mensura).try(:mensura_nro) %>
+          </td>
+          <th>
+            Letra:      
+          </th>
+          <td>
+            <%= text_field_tag :mensura_letra, propiedad.parcela.try(:mensura).try(:mensura_letra) %>
+            <%= hidden_field_tag :mensura_id, nil %>
+            <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_mensuras_path, class: 'fancybox-min' %>
+            <%= link_to image_tag("history.png", alt: 'Busqueda'), mensuras_propiedad_path(propiedad), class: 'fancybox-min' %>
+                        
+          </td>
+          <tr>
+          </tr>
+            <td>&nbsp;</td>
+          <tr>  
+            <th>
+              Ultima Mensura:
+            </th>
+            <td>
+              <%= propiedad.parcela.try(:mensuras).try(:last).try(:mensura_nro) %> - <%= propiedad.parcela.try(:mensuras).try(:last).try(:mensura_letra) %>
+            </td>
+          </tr>
+        </tr>
+        </table>
+        </fieldset>
+         
 
-
-    <div class="field">
-      <%= f.label :fecha_aplicacion_decreto %>
-      <%= f.date_select :fecha_aplicacion_decreto %>
-    </div>
-
-    <div class="field">
-      <%= f.label :exp_nro %>
-      <%= f.text_field :exp_nro %>
-    </div>
-
-    <div class="field">
-      <%= f.label :exp_anio %>
-      <%= f.number_field :exp_anio %>
-    </div>
-
-    <div class="field">
-      <%= f.label :exp_letra %>
-      <%= f.text_field :exp_letra %>
-    </div>
-
-
-    <div class="actions">
-      <%= f.submit %>
+    <div class="actions", style="text-align: center">
+      <%= f.submit "Guardar", class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>
     </div>
     </tbody>
   </table>
 </fieldset>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.fancybox-min').fancybox();
+
+  })
+  </script>

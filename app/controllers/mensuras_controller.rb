@@ -4,7 +4,7 @@ class MensurasController < ApplicationController
   # GET /mensuras
   # GET /mensuras.json
   def index
-    @mensuras = Mensura.all
+    @mensuras = Mensura.paginate(page: params[:page], per_page:10).all.order(fecha_registracion: :desc)
     respond_to do |format|
       format.html
       format.json
@@ -44,7 +44,7 @@ class MensurasController < ApplicationController
       if @mensura.save
         format.html { redirect_to edit_mensura_path @mensura, notice: 'El registro se almacenó correctamente' }
         format.json { render :show, status: :created, location: @mensura }
-
+        format.js { render(template: 'asignar') }
       else
         format.html { render :new }
         format.json { render json: @mensura.errors, status: :unprocessable_entity }

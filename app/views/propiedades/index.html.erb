@@ -2,67 +2,53 @@
 <legend class="ui-widget ui-widget-header ui-corner-all">Propiedades</legend>
 <p id="notice"><%= notice %></p>
 
-<table>
+<form>
+  <table id="form-horizontal">
+    <tbody>
+      <tr>
+        <td>
+          <%= text_field_tag :partida,params[:partida], placeholder: "Buscar"%>&nbsp;&nbsp;
+        </td>
+        <td>
+          <%= button_tag image_tag("zoom.png", alt: 'Busqueda') %>
+          
+        </td>
+      </tr>          
+    </tbody>
+  </table>
+</form>
+
+<table class="listado" id="form-horizontal">
   <thead>
-    <tr>
-      <th>Partida</th>
-      <th>Propiedad union</th>
+    <tr class="ui-widget-header listadoTitulo">
+      <th>Partida</th>      
       <th>Localidad</th>
-      <th>Irp tomo</th>
-      <th>Irp folio real</th>
-      <th>Irp folio uf</th>
-      <th>Cantidad ocupantes</th>
-      <th>Fecha aplicacion decreto</th>
-      <th>Coeficiente prorrateo</th>
-      <th>Superficie unidad funcional</th>
-      <th>Piso</th>
-      <th>Departamento</th>
-      <th>Propiedad block</th>
-      <th>Tipo propiedad</th>
-      <th>Zona</th>
-      <th>Jurisdiccion</th>
-      <th>Agua cte</th>
-      <th>Cloaca</th>
-      <th>Irp finca</th>
-      <th>Exp nro</th>
-      <th>Exp anio</th>
-      <th>Exp letra</th>
-      <th>Propiedad origen</th>
+      <th>Jurisdiccion</th> 
+      <th>Tomo</th>
+      <th>Folio </th>
+      <th>Año</th>       
       <th>Fecha vigencia</th>
+      <th>Sup. Catastro</th>
+      <th>Mensura</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @propiedades.each do |propiedad| %>
-      <tr>
-        <td><%= propiedad.partida %></td>
-        <td><%= propiedad.propiedad_union_id %></td>
-        <td><%= propiedad.localidad_id %></td>
+    <% @propiedades.each do |propiedad| %>      
+      <tr class="<%= cycle('par','impar') %>">
+        <td><%= propiedad.partida %></td>        
+        <td><%= propiedad.localidad.try(:descripcion) %></td>
+        <td><%= propiedad.jurisdiccion.try(:descripcion) %></td>
         <td><%= propiedad.irp_tomo %></td>
         <td><%= propiedad.irp_folio_real %></td>
-        <td><%= propiedad.irp_folio_uf %></td>
-        <td><%= propiedad.cantidad_ocupantes %></td>
-        <td><%= propiedad.fecha_aplicacion_decreto %></td>
-        <td><%= propiedad.coeficiente_prorrateo %></td>
-        <td><%= propiedad.superficie_unidad_funcional %></td>
-        <td><%= propiedad.piso %></td>
-        <td><%= propiedad.departamento %></td>
-        <td><%= propiedad.propiedad_block_id %></td>
-        <td><%= propiedad.tipo_propiedad_id %></td>
-        <td><%= propiedad.zona_id %></td>
-        <td><%= propiedad.jurisdiccion_id %></td>
-        <td><%= propiedad.agua_cte %></td>
-        <td><%= propiedad.cloaca %></td>
-        <td><%= propiedad.irp_finca %></td>
-        <td><%= propiedad.exp_nro %></td>
-        <td><%= propiedad.exp_anio %></td>
-        <td><%= propiedad.exp_letra %></td>
-        <td><%= propiedad.propiedad_origen_id %></td>
-        <td><%= propiedad.fecha_vigencia %></td>
-        <td><%= link_to 'Show', propiedad %></td>
-        <td><%= link_to 'Edit', edit_propiedad_path(propiedad) %></td>
-        <td><%= link_to 'Destroy', propiedad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= propiedad.irp_anio %></td> 
+        <td><%= l propiedad.fecha_vigencia if propiedad.fecha_vigencia %></td>
+        <td><%= propiedad.parcela.try(:superficie_catastro) %></td>
+        <td><%= propiedad.parcela.try(:mensuras).try(:last).try(:mensura_nro) %> - <%= propiedad.parcela.try(:mensuras).try(:last).try(:mensura_letra) %></td>
+        <td><%= link_to image_tag("zoom.png"), propiedad %></td>
+        <td><%= link_to image_tag("edit.png"), edit_propiedad_path(propiedad) %></td>
+        <td><%= link_to image_tag("delete.png"), propiedad, method: :delete, data: { confirm: 'Seguro que desea eliminar esta propiedad?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -70,4 +56,7 @@
 </fieldset>
 <br>
 
-<%= link_to 'New Propiedad', new_propiedad_path %>
+
+  <%= will_paginate @propiedades%><br>
+  <%= link_to 'Nueva Propiedad', new_propiedad_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>
+

@@ -27,24 +27,24 @@
         <td><%= mensura.mensura_nro %></td>
         <td><%= mensura.mensura_letra %></td>
         <td><%= mensura.expediente.try(:nro_expediente) %></td>
-        <td><%= mensura.iniciador.try(:razon_social) %></td>
+        <td><%= mensura.iniciador.try(:razon_social).try(:upcase) %></td>
         <td><%= mensura.objetos_mensura.try(:descripcion) %></td>
         <td><%= mensura.localidad.try(:descripcion) %></td>
         <td><%= mensura.jurisdiccion.descripcion %></td>
-        <td><%= mensura.try(:rectificacion_id) %></td>
-        <td><%= mensura.propietario %></td>
-        <td><%= mensura.fecha_operaciones %></td>
-        <td><%= mensura.visador.try(:apellido) %></td>
-        <td><%= mensura.fecha_registracion %></td>
-        <td><%= link_to 'Show', mensura %></td>
-        <td><%= link_to 'Edit', edit_mensura_path(mensura) %></td>
-        <td><%= link_to 'Destroy', mensura, method: :delete, data: { confirm: 'Seguro que desea eliminar la Mensura?' } %></td>
+        <td><%= mensura.try(:rectificacion).try(:mensura_nro) %></td>
+        <td><%= mensura.propietario.try(:upcase) %></td>
+        <td><%= l mensura.fecha_operaciones if mensura.fecha_operaciones %></td>
+        <td><%= mensura.visador.try(:apellido).try(:upcase) %></td>
+        <td><%= l mensura.fecha_registracion if mensura.fecha_registracion %></td>
+        <td><%= link_to image_tag("zoom.png"), mensura %></td>
+        <td><%= link_to image_tag("edit.png"), edit_mensura_path(mensura) %></td>
+        <td><%= link_to image_tag("delete.png"), mensura, method: :delete, data: { confirm: 'Seguro que desea eliminar la Mensura?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<%= will_paginate @mensuras %><br>
 <%= link_to 'Nueva Mensura', new_mensura_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>
 </fieldset>

@@ -1,6 +1,7 @@
 class Mensura < ApplicationRecord
 	belongs_to :jurisdiccion
 	belongs_to :expediente, foreign_key: :expte_id, optional: true
+	belongs_to :rectificacion, foreign_key: :rectificacion_id, optional: true, class_name: 'Mensura'
 	belongs_to :iniciador, optional: true
 	belongs_to :localidad, optional: true
 	belongs_to :visador, optional: true

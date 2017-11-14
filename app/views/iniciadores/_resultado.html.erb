@@ -7,7 +7,7 @@
     </tr>
     <%  @iniciadores.each do |iniciador| %>
       <tr class="<%= cycle('par','impar') %>">
-        <td><%= iniciador.razon_social %></td>
+        <td><%= iniciador.razon_social.upcase %></td>
       
         <td>
           <%= button_to 'Asignar', asignar_iniciadores_path(id: iniciador), method: :get ,remote: true %>

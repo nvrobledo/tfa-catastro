@@ -14,7 +14,7 @@
 
 <p>
   <strong>Tipos documento:</strong>
-  <%= @visador.tipos_documento.try(:descripcion_corta) %>
+  <%= @visador.tipo_documento.try(:descripcion_corta) %>
 </p>
 
 <p>
@@ -32,6 +32,6 @@
   <%= @visador.zona %>
 </p>
 
-<%#= link_to 'Edit', edit_visador_path(@visador) %> 
-<%#= link_to 'Back', visadores_path %>
+<%= link_to image_tag("edit"), edit_visador_path(@visador) %> 
+<%= link_to image_tag("back"), visadores_path %>
 </fieldset>

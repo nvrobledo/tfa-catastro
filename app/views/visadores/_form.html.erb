@@ -1,4 +1,4 @@
-<%= form_for(visador) do |f| %>
+<%= form_for(visador, remote: params[:fancybox]) do |f| %>
   <% if visador.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(visador.errors.count, "error") %> prohibited this visador from being saved:</h2>

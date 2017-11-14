@@ -1,4 +1,4 @@
-<%= form_for(iniciador) do |f| %>
+<%= form_for(iniciador, remote: params[:fancybox]) do |f| %>
   <% if iniciador.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(iniciador.errors.count, "error") %> prohibited this iniciador from being saved:</h2>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016202414) do
+ActiveRecord::Schema.define(version: 20171101234106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 20171016202414) do
     t.datetime "updated_at",         null: false
     t.string   "calle"
     t.string   "propietario"
+    t.integer  "parcela_id"
   end
 
   create_table "normas", force: :cascade do |t|
@@ -365,12 +366,12 @@ ActiveRecord::Schema.define(version: 20171016202414) do
   create_table "visadores", force: :cascade do |t|
     t.string   "apellido"
     t.string   "nombre"
-    t.integer  "tipos_documento"
+    t.integer  "tipos_documento_id"
     t.string   "documento"
     t.string   "matricula"
     t.integer  "zona"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_foreign_key "expedientes", "estados_expedientes", column: "estado_expediente_id", name: "expedientes_estado_expediente_id_fkey"

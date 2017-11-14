@@ -4,7 +4,7 @@ class IniciadoresController < ApplicationController
   # GET /iniciadores
   # GET /iniciadores.json
   def index
-    @iniciadores = Iniciador.all
+    @iniciadores = Iniciador.paginate(page: params[:page], per_page:10).all.order(:razon_social)
   end
 
   # GET /iniciadores/1
@@ -17,7 +17,7 @@ class IniciadoresController < ApplicationController
     @iniciador = Iniciador.new
     if params[:fancybox]  
       render(layout: false)
-    end
+     end
   end
 
   # GET /iniciadores/1/edit
@@ -33,6 +33,7 @@ class IniciadoresController < ApplicationController
       if @iniciador.save
         format.html { redirect_to @iniciador, notice: 'Iniciador was successfully created.' }
         format.json { render :show, status: :created, location: @iniciador }
+        format.js {render(template:'iniciadores/asignar')}
       else
         format.html { render :new }
         format.json { render json: @iniciador.errors, status: :unprocessable_entity }
@@ -47,6 +48,7 @@ class IniciadoresController < ApplicationController
       if @iniciador.update(iniciador_params)
         format.html { redirect_to @iniciador, notice: 'Iniciador was successfully updated.' }
         format.json { render :show, status: :ok, location: @iniciador }
+
       else
         format.html { render :edit }
         format.json { render json: @iniciador.errors, status: :unprocessable_entity }

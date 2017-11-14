@@ -1,127 +1,65 @@
-<fieldset class="ui-widget ui-widget-content ui-corner-all" >
+<h1><%= @propiedad.partida %></h1>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" >  
 <legend class="ui-widget ui-widget-header ui-corner-all">Propiedades</legend>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Partida:</strong>
-  <%= @propiedad.partida %>
-</p>
-
-<p>
-  <strong>Propiedad union:</strong>
-  <%= @propiedad.propiedad_union_id %>
-</p>
-
-<p>
-  <strong>Localidad:</strong>
-  <%= @propiedad.localidad_id %>
-</p>
-
-<p>
-  <strong>Irp tomo:</strong>
-  <%= @propiedad.irp_tomo %>
-</p>
-
-<p>
-  <strong>Irp folio real:</strong>
-  <%= @propiedad.irp_folio_real %>
-</p>
-
-<p>
-  <strong>Irp folio uf:</strong>
-  <%= @propiedad.irp_folio_uf %>
-</p>
-
-<p>
-  <strong>Cantidad ocupantes:</strong>
-  <%= @propiedad.cantidad_ocupantes %>
-</p>
-
-<p>
-  <strong>Fecha aplicacion decreto:</strong>
-  <%= @propiedad.fecha_aplicacion_decreto %>
-</p>
-
-<p>
-  <strong>Coeficiente prorrateo:</strong>
-  <%= @propiedad.coeficiente_prorrateo %>
-</p>
-
-<p>
-  <strong>Superficie unidad funcional:</strong>
-  <%= @propiedad.superficie_unidad_funcional %>
-</p>
-
-<p>
-  <strong>Piso:</strong>
-  <%= @propiedad.piso %>
-</p>
-
-<p>
-  <strong>Departamento:</strong>
-  <%= @propiedad.departamento %>
-</p>
-
-<p>
-  <strong>Propiedad block:</strong>
-  <%= @propiedad.propiedad_block_id %>
-</p>
-
-<p>
-  <strong>Tipo propiedad:</strong>
-  <%= @propiedad.tipo_propiedad_id %>
-</p>
-
-<p>
-  <strong>Zona:</strong>
-  <%= @propiedad.zona_id %>
-</p>
-
-<p>
-  <strong>Jurisdiccion:</strong>
-  <%= @propiedad.jurisdiccion_id %>
-</p>
-
-<p>
-  <strong>Agua cte:</strong>
-  <%= @propiedad.agua_cte %>
-</p>
-
-<p>
-  <strong>Cloaca:</strong>
-  <%= @propiedad.cloaca %>
-</p>
-
-<p>
-  <strong>Irp finca:</strong>
-  <%= @propiedad.irp_finca %>
-</p>
-
-<p>
-  <strong>Exp nro:</strong>
-  <%= @propiedad.exp_nro %>
-</p>
-
-<p>
-  <strong>Exp anio:</strong>
-  <%= @propiedad.exp_anio %>
-</p>
-
-<p>
-  <strong>Exp letra:</strong>
-  <%= @propiedad.exp_letra %>
-</p>
-
-<p>
-  <strong>Propiedad origen:</strong>
-  <%= @propiedad.propiedad_origen_id %>
-</p>
-
-<p>
-  <strong>Fecha vigencia:</strong>
-  <%= @propiedad.fecha_vigencia %>
-</p>
+<table>
+ <tbody>
+  <tr>
+    <th>Zona:</th>
+    <td><%= @propiedad.zona_id %></td>
+    <th>Localidad:</th>
+    <td><%= @propiedad.localidad.try(:descripcion) if @propiedad.localidad_id %></td>
+    <th>Jurisdicción:</th>
+    <td><%= @propiedad.jurisdiccion.try(:descripcion) if @propiedad.jurisdiccion_id %></td>
+    <th>Fecha Vigencia:</th>
+    <td><%= l @propiedad.fecha_vigencia %></td>
+  </tr>
+</tbody>
+</table>
 </fieldset>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" > 
+<legend class="ui-widget ui-widget-header ui-corner-all">R.P.I.</legend>
+<table>
+<tbody>  
+  <tr>
+    <th>Tomo:</th>
+    <td><%= @propiedad.irp_tomo %></td>
+    <th>Folio N°:</th>
+    <td><%= @propiedad.irp_folio_real %></td>
+    <th>Año:</th>
+    <td><%= @propiedad.irp_anio %></td>
+    </tr>
+</tbody>
+</table>
+</fieldset>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" > 
+<legend class="ui-widget ui-widget-header ui-corner-all">Parcela</legend>
+<table>
+<tbody>  
+  <tr>
+    <th>Sup. Catastro:</th>
+    <td><%= @propiedad.parcela.try(:superficie_catastro) %></td>
+    <th>Sup. Mensura</th>
+    <td><%= @propiedad.parcela.try(:superficie_mensura) %></td>
+  </tr> 
+</tbody>
+</table>
+</fieldset>
+<fieldset class="ui-widget ui-widget-content ui-corner-all" > 
+<legend class="ui-widget ui-widget-header ui-corner-all">Mensura</legend>
+<table>
+<tbody>  
+  <tr>
+    <th>Mensura:</th>
+    <td><%= @propiedad.parcela.try(:mensuras).try(:last).try(:mensura_nro) %> - <%= @propiedad.parcela.try(:mensuras).try(:last).try(:mensura_letra) %></td>    
+  </tr>
+ 
+</tbody>
+</table> 
+</fieldset>
+<br><br>
+<div>
+     <%= link_to image_tag("edit"), edit_propiedad_path(@propiedad) %> |
+     <%= link_to image_tag("back"), propiedades_path %>
+  </div>
 
-<%= link_to 'Edit', edit_propiedad_path(@propiedad) %> |
-<%= link_to 'Back', propiedades_path %>

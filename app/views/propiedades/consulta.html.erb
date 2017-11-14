@@ -1,0 +1,26 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Propiedad</legend>  
+  
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <td>
+              <%= text_field_tag :partida %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= link_to image_tag("zoom.png", alt: 'Busqueda'), busqueda_propiedades_path, class: 'fancybox-min' %>
+              
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+  
+  
+ 
+
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.fancybox-min').fancybox();
+  })
+</script>
+

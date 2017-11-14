@@ -19,14 +19,14 @@
         <td><%= iniciador.razon_social %></td>
         <td><%= iniciador.tipo_documento.try(:descripcion_corta) %></td>
         <td><%= iniciador.matricula %></td>
-        <td><%= link_to 'Show', iniciador %></td>
-        <td><%= link_to 'Edit', edit_iniciador_path(iniciador) %></td>
-        <td><%= link_to 'Destroy', iniciador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag("zoom.png"), iniciador %></td>
+        <td><%= link_to image_tag("edit.png"), edit_iniciador_path(iniciador) %></td>
+        <td><%= link_to image_tag("delete.png"), iniciador, method: :delete, data: { confirm: 'Seguro desea eliminar iniciador?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Iniciador', new_iniciador_path %>
+<%= will_paginate @iniciadores%><br>
+<%= link_to 'Nuevo Iniciador', new_iniciador_path, class: "submit ui-button ui-widget ui-state-default ui-corner-all" %>

@@ -7,7 +7,7 @@
     </tr>
     <%  @visadores.each do |visador| %>
       <tr class="<%= cycle('par','impar') %>">
-        <td><%= visador.apellido %></td>
+        <td><%= visador.apellido.upcase %></td>
       
         <td>
           <%= button_to 'Asignar', asignar_visadores_path(id: visador), method: :get ,remote: true %>

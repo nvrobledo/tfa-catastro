@@ -1,0 +1,27 @@
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+  <legend class="ui-widget ui-widget-header ui-corner-all">Buscar Propiedad</legend>  
+  <!--<h1>Buscar Mensura</h1>-->
+  <div id='form_propiedades'>
+    <%= form_for "propiedades", url: resultado_busqueda_propiedades_path, remote: true do |f| %>
+    
+
+      <table id="form-horizontal">
+        <tbody>
+          <tr>
+            <th>
+              Propiedad:
+            </th>
+            <td>
+              <%= f.text_field :partida %>&nbsp;&nbsp;
+            </td>
+            <td>
+              <%= f.submit "Buscar"%>&nbsp;&nbsp;
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div id="resultado"></div>
+</fieldset>
+

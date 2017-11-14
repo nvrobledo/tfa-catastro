@@ -4,7 +4,7 @@ class VisadoresController < ApplicationController
   # GET /visadores
   # GET /visadores.json
   def index
-    @visadores = Visador.all
+    @visadores = Visador.paginate(page: params[:page], per_page:10).all.order(:apellido)
   end
 
   # GET /visadores/1
@@ -15,9 +15,9 @@ class VisadoresController < ApplicationController
   # GET /visadores/new
   def new
     @visador = Visador.new
-    if params[:fancybox]  
+    if params[:fancybox]
       render(layout: false)
-  end
+    end
   end
 
   # GET /visadores/1/edit
@@ -31,8 +31,9 @@ class VisadoresController < ApplicationController
 
     respond_to do |format|
       if @visador.save
-        format.html { redirect_to @visador, notice: 'Visador was successfully created.' }
+        format.html { redirect_to @visador, notice: 'Visador creado correctamente.' }
         format.json { render :show, status: :created, location: @visador }
+        format.js {render template: 'visadores/asignar'}
       else
         format.html { render :new }
         format.json { render json: @visador.errors, status: :unprocessable_entity }
@@ -45,7 +46,7 @@ class VisadoresController < ApplicationController
   def update
     respond_to do |format|
       if @visador.update(visador_params)
-        format.html { redirect_to @visador, notice: 'Visador was successfully updated.' }
+        format.html { redirect_to @visador, notice: 'Visador guardado correctamente.' }
         format.json { render :show, status: :ok, location: @visador }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class VisadoresController < ApplicationController
   def destroy
     @visador.destroy
     respond_to do |format|
-      format.html { redirect_to visadores_url, notice: 'Visador was successfully destroyed.' }
+      format.html { redirect_to visadores_url, notice: 'Visador eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

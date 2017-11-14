@@ -1,14 +1,14 @@
 
    <div class="main">
-   <h1>Mensura: <%= @mensura.mensura_nro %>-<%= @mensura.mensura_letra %></h1>
+   <h1>Mensura: <%= @mensura.try(:mensura_nro) %>-<%= @mensura.try(:mensura_letra) %></h1>
 
    <br><br>
 
-   	<% if @mensura.rectificacion_id %>
-      Rectifica a la Mensura N°:   
-    	<%= @mensura.try(:rectificacion_nro) %>
-    <%end%>
-    <br>
+   
+    <b>Rectifica a la Mensura N°:</b>   
+    	<%= @mensura.try(:rectificacion).try(:mensura_nro) %>
+    
+    <br><br>
 
    <b>Expediente N°:</b>
     <%= @mensura.expediente.try(:nro_expediente) %>&nbsp;&nbsp;

@@ -31,10 +31,21 @@ Rails.application.routes.draw do
          post :resultado_busqueda
     end
   end
-  resources :propiedades
+  resources :propiedades do
+    collection do
+      get :consulta
+      get :busqueda
+      get :asignar
+      post :resultado_busqueda
+    end
+    member do
+      get :mensuras
+    end
+  end
   resources :parcelas do
     collection do
       get :mensuraPar
+      post :guardar_mensuras
     end
   end
   resources :visadores do

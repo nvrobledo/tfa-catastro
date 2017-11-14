@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
 
- *= require jquery-ui
- *= require main
- *= require clickmenu
+ *= require jquery-ui-min
+ *= require main-min
+ *= require clickmenu-min
  *= require fancybox-min
  *= require ui-button
  */

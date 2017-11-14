@@ -1,5 +1,5 @@
 <fieldset class="ui-widget ui-widget-content ui-corner-all" >
-<legend class="ui-widget ui-widget-header ui-corner-all">Mensura: <%= @mensura.mensura_nro %>-<%= @mensura.mensura_letra %></legend>
+<legend class="ui-widget ui-widget-header ui-corner-all">Mensura: <%= @mensura.try(:mensura_nro) %>-<%= @mensura.try(:mensura_letra) %></legend>
 <p id="notice"><%= notice %></p>
   <table>
     <tbody> 
@@ -9,7 +9,7 @@
             Rectifica a la Mensura N°:   
           </th>
           <td>
-            <%= @mensura.rectificacion_id %>
+            <%= @mensura.try(:rectificacion).try(:mensura_nro) %>
           </td>
         <%end%>
         <th>
@@ -28,7 +28,7 @@
           Calle o Paraje:
         </th>
         <td>
-          <%= @mensura.calle.upcase %>&nbsp;&nbsp;
+          <%= @mensura.calle.try(:upcase) %>&nbsp;&nbsp;
         </td>
       </tr>
       <tr>
@@ -50,7 +50,7 @@
           Propietario/Poseedor:
         </th>
         <td>
-          <%= @mensura.propietario.upcase %>&nbsp;&nbsp;
+          <%= @mensura.propietario.try(:upcase) %>&nbsp;&nbsp;
         </td>
         <th>
           Expediente N°:
@@ -78,10 +78,18 @@
         <td>
           <%= @mensura.visador.try(:apellido).try(:upcase) %>&nbsp;&nbsp;
         </td>
-      </tr>                   
+      </tr> 
+      <tr>
+        <td>
+         <%= link_to image_tag("edit"), edit_mensura_path(@mensura) %> |
+         <%= link_to image_tag("back"), mensuras_path %>
+        </td>
+        <td style="text-align: center">
+          <%= link_to 'Reporte Alta', mensura_path(@mensura, :format => :pdf), class: "submit ui-button ui-widget ui-state-default ui-corner-all", target:"_blank" %>
+        </td> 
+      </tr>                  
       
 
-<%= link_to 'Edit', edit_mensura_path(@mensura) %> |
-<%= link_to 'Back', mensuras_path %>
+
 </fieldset>
 
